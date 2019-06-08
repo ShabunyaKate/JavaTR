@@ -1,77 +1,65 @@
 package by.javatr.task2.service;
 
 import by.javatr.task2.entity.Composite;
-import by.javatr.task2.entity.LeafWord;
+import by.javatr.task2.entity.Entity;
+import by.javatr.task2.entity.TypeOfComposite;
+import by.javatr.task2.exception.GeneralException;
+import by.javatr.task2.service.comparator.LengthComparator;
+import by.javatr.task2.service.comparator.WordComparator;
+import by.javatr.task2.service.comparator.WordLengthComparator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Collections;
+import java.util.List;
 
 public class Sorter {
-    public void sortParagraph(Composite text) {//абзац по колво предложений
-        Composite a,b;//paragraph1 paragrapgh2
-        for(int i=0;i<text.getCompositeLength();i++) {
-            a = text.getCompositeElement(i);
-            b = text.getCompositeElement(i + 1);
-            if (a.getCompositeLength() > b.getCompositeLength()) {
-                swapComposite(a, b);
-            }
-        }
+    private static final Logger log= LogManager.getLogger(Sorter.class);
+    public static Composite sortParagraph(Composite text) {//абзац по колво предложений
+        Composite newText;
+        List<Entity> partList=text.copyEntity();
+        Collections.sort(partList,new LengthComparator());
+        newText=new Composite(partList, TypeOfComposite.TEXT);
+        return newText;
     }
-    public void sortSentense(Composite text, String str){ // предлродения в абзаце по количеству вхождений слова
-        Composite paragraph, sentense1,sentense2;
-        for(int i=0;i<text.getCompositeLength();i++) {
-            paragraph=text.getCompositeElement(i);
-            for(int j=0;j<paragraph.getCompositeLength()-1;j++){
-                sentense1=paragraph.getCompositeElement(i);
-                sentense2=paragraph.getCompositeElement(i+1);
-                if(countOfWordMatches(sentense1,str)>countOfWordMatches(sentense2,str)){
-                    swapComposite(sentense1,sentense2);
+    public static Composite sortSentense(Composite text, String str) throws GeneralException{ // предлродения в абзаце по количеству вхождений слова
+        if(str==null) throw new GeneralException("Empty string");
+        Composite newText=new Composite(TypeOfComposite.TEXT);
+        for(int i=0;i<text.getLength();i++) {
+            Composite paragraph=text.getCompositeElement(i);
+            List<Entity> paragraphList=paragraph.copyEntity();
+            Collections.sort(paragraphList,new WordComparator(str));
+            newText.add(new Composite(paragraphList, TypeOfComposite.PARAGRAPH));
+        }
+        return newText;
+    }
+    public static Composite sortWord(Composite text) {// сортировка слов в предложении по длине
+        Composite newtext=new Composite(TypeOfComposite.TEXT);
+        Composite paragraph;
+        Composite sentense;
+        try {
+            for (int i = 0; i < text.getLength(); i++) {
+                Composite newparagraph = new Composite(TypeOfComposite.PARAGRAPH);
+                paragraph = text.getCompositeElement(i);
+                for (int j = 0; j < paragraph.getLength(); j++) {
+                    sentense = sortWordSentense(paragraph.getCompositeElement(j));
+                    newparagraph.add(sentense);
                 }
+                newtext.add(newparagraph);
             }
         }
+        catch(GeneralException e){
+            log.error(e.getMessage());
+        }
+        return newtext;
     }
-    public void sortWord(Composite text){// сортировка слов в предложении по длине
-        Composite paragraph, sentense,lexem;
-        LeafWord a,b;
-        for(int i=0;i<text.getCompositeLength();i++) {
-          paragraph=text.getCompositeElement(i);
-          for(int j=0;j<paragraph.getCompositeLength();j++){
-              sentense=paragraph.getCompositeElement(j);
-              for(int k=0; k<sentense.getCompositeLength();k++){
-              lexem=sentense.getCompositeElement(k);
-              for(int n=0;n<lexem.getCompositeLength();n++){
-                  if(lexem.getElement(i) instanceof LeafWord&&lexem.getElement(i+1) instanceof LeafWord) {
-                      a = (LeafWord) lexem.getElement(i);
-                      b = (LeafWord) lexem.getElement(i + 1);
-                      if (a.getLeafLength() > b.getLeafLength()) {
-                          swapLeafWord(a, b);
-                      }
-                  }
-              }
-              }
-          }
+        private static Composite sortWordSentense(Composite sentense) throws GeneralException {
+            if (TypeOfComposite.SENTENSE.equals(sentense.getType())) {
+                List<Entity> listSentense = sentense.copyEntity();
+                Collections.sort(listSentense, new WordLengthComparator());
+                return new Composite(listSentense, TypeOfComposite.SENTENSE);
+            } else
+                throw new GeneralException("Composite is not sentense");
         }
     }
-    public int countOfWordMatches(Composite sentense, String word){//количество совпадений
-        Composite lexem;
-        LeafWord wordLeaf;
-        int countMatches=0;
-        for(int i=0;i<sentense.getCompositeLength();i++){
-             lexem=sentense.getCompositeElement(i);
-             for(int j=0;j<lexem.getCompositeLength();j++){
-                 wordLeaf=lexem.getLeafElement(j);
-                 if(word.equals(wordLeaf.toString())){
-                     countMatches++;
-                 }
-             }
-        }
-        return countMatches;
-    }
-    private void swapComposite(Composite a,Composite b) {//два свэпа в один для общего вида T
-        Composite buf =a;
-        a=b;
-        b=buf;
-    }
-    private void swapLeafWord(LeafWord a,LeafWord b){
-        LeafWord buf =a;
-        a=b;
-        b=buf;
-    }
-}
+

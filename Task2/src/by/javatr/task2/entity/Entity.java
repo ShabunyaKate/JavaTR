@@ -1,4 +1,8 @@
 package by.javatr.task2.entity;
 
-public class Entity {
+public interface Entity {
+    static final String DELIMETER=" ";
+    int getLength();
+    int leafLength();
+    int matchStr(String str);
 }

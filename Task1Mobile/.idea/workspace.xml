@@ -2,16 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0225159e-c12b-4abf-8c54-f801899ccc4c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/database" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/javatr/task/creator/DefaultRateFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/javatr/task/creator/InternetRateFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/javatr/task/creator/MobileInternetRateFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/javatr/task/creator/MobileRateFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/javatr/task/creator/Validator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/javatr/task/repository/MobileCompany.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/DefaultRateFactoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/InternetRateFactoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/TypeOfRateTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/data/text" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/entity/Composite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/entity/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/entity/LeafWord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/entity/TypeOfComposite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/exception/GeneralException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/CompositeText.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/LexemParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/ParagraphParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/Parser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/SentenseParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/WordParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/reader/FileReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/Sorter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/comparator/LengthComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/comparator/WordComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/comparator/WordLengthComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/log4j-api-2.11.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/lib/log4j-api-2.11.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/log4j-core-2.11.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/lib/log4j-core-2.11.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/testng-6.14.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/lib/testng-6.14.3.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/task/creator/MobileInternetRateFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/task/creator/MobileInternetRateFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/log4j2.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,21 +46,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/javatr/task/creator/MobileInternetRateFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/MobileRateFactoryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
+            <state relative-caret-position="180">
               <caret line="16" column="21" selection-start-line="12" selection-end-line="45" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -52,11 +57,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/RateFactoryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+            <state relative-caret-position="260">
+              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/log4j2.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="8" column="13" selection-end-line="27" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -64,8 +78,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/MobileInternetRateFactoryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="49" column="1" lean-forward="true" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+            <state relative-caret-position="800">
+              <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/by/javatr/task/repository/MobileCompany.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="18" column="75" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,9 +100,44 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/javatr/task/repository/service/ComparatorPrice.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="11" column="5" selection-start-line="7" selection-end-line="12" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#246#247#0" expanded="true" />
+                <element signature="e#296#297#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/javatr/task/repository/service/SearchByName.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/javatr/task/exception/GeneralException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" selection-start-line="8" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/DefaultRateFactoryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
+            <state relative-caret-position="640">
               <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -88,7 +149,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/InternetRateFactoryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="60">
               <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
@@ -139,7 +200,6 @@
         <option value="$PROJECT_DIR$/src/by/javatr/task/creator/DefaultRateCreator.java" />
         <option value="$PROJECT_DIR$/src/by/javatr/task/creator/DefaultRateFactory.java" />
         <option value="$PROJECT_DIR$/src/by/javatr/task/creator/InternetRateFactory.java" />
-        <option value="$PROJECT_DIR$/src/by/javatr/task/creator/MobileInternetRateFactory.java" />
         <option value="$PROJECT_DIR$/src/by/javatr/task/creator/MobileRateFactory.java" />
         <option value="$PROJECT_DIR$/src/by/javatr/task/repository/service/SearchByPrice.java" />
         <option value="$PROJECT_DIR$/src/by/javatr/task/repository/service/SearchByPeople.java" />
@@ -148,7 +208,6 @@
         <option value="$PROJECT_DIR$/src/by/javatr/task/repository/service/ComparatorName.java" />
         <option value="$PROJECT_DIR$/src/by/javatr/task/repository/service/ComparatorPeople.java" />
         <option value="$PROJECT_DIR$/src/by/javatr/task/repository/service/SearchParametr.java" />
-        <option value="$PROJECT_DIR$/src/log4j2.xml" />
         <option value="$PROJECT_DIR$/src/by/javatr/task/Main.java" />
         <option value="$PROJECT_DIR$/src/by/javatr/task/creator/CreatorFromFile.java" />
         <option value="$PROJECT_DIR$/src/by/javatr/task/reader/LineReader.java" />
@@ -163,14 +222,16 @@
         <option value="$PROJECT_DIR$/src/test/InternetRateFactoryTest.java" />
         <option value="$PROJECT_DIR$/src/test/DefaultRateFactoryTest.java" />
         <option value="$PROJECT_DIR$/src/test/MobileInternetRateFactoryTest.java" />
+        <option value="$PROJECT_DIR$/src/log4j2.xml" />
+        <option value="$PROJECT_DIR$/src/by/javatr/task/creator/MobileInternetRateFactory.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1265" />
-    <option name="height" value="750" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="5" />
+    <option name="y" value="51" />
+    <option name="width" value="1053" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -200,17 +261,7 @@
             <path>
               <item name="Task1Mobile" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="Task1Mobile" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="data" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Task1Mobile" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Task1Mobile" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="lib" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Task1Mobile" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Task1Mobile" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="out" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="Task1Mobile" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -241,7 +292,20 @@
             <path>
               <item name="Task1Mobile" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="Task1Mobile" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="by" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="javatr" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="task" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="reader" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Task1Mobile" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Task1Mobile" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="by" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="javatr" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="task" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="repository" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -250,13 +314,14 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="XML" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="TestNG" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.TestNG" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/data" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -447,9 +512,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="4" y="41" width="842" height="831" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8418803" visible="true" weight="0.20402685" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8418803" visible="true" weight="0.03836317" />
       <window_info id="Structure" order="1" sideWeight="0.15811966" side_tool="true" weight="0.21218075" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -465,7 +531,7 @@
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.4994995" weight="0.8022923" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.504698" side_tool="true" visible="true" weight="0.39660057" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.504698" side_tool="true" visible="true" weight="0.26895565" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -513,13 +579,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/log4j-api/src/main/java/org/apache/logging/log4j/spi/Provider.java" />
     <entry file="file://$PROJECT_DIR$/data/text.log" />
-    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/exception/GeneralException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/javatr/task/entity/MobileInternetRate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -545,43 +604,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/creator/DefaultRateFactory">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/creator/DefaultRateCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/creator/MobileInternetCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/creator/DefaultRateFactory" />
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/creator/DefaultRateCreator.java" />
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/creator/MobileInternetCreator.java" />
     <entry file="file://$PROJECT_DIR$/src/by/javatr/task/repository/service/Parametr.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/repository/service/ComparatorPrice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#233#234#0" expanded="true" />
-            <element signature="e#283#284#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -613,27 +642,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="23" column="60" lean-forward="true" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/by/javatr/task/entity/Rate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-330">
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/log4j2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -681,17 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/repository/service/SearchByName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#584#585#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/javatr/task/entity/typeOfRate/TypeOfRate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
@@ -733,13 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/reader/LineReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/javatr/task/creator/DefaultRateFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -760,20 +755,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/repository/MobileCompany.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1050">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/javatr/task/creator/MobileInternetRateFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        <state relative-caret-position="420">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -782,44 +767,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/by/javatr/task/creator/RateFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        <state relative-caret-position="220">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/MobileInternetRateFactoryTest.java">
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/reader/LineReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="49" column="1" lean-forward="true" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+        <state relative-caret-position="100">
+          <caret line="18" column="76" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/DefaultRateFactoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/InternetRateFactoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/MobileRateFactoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
+        <state relative-caret-position="180">
           <caret line="16" column="21" selection-start-line="12" selection-end-line="45" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -829,8 +797,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/RateFactoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        <state relative-caret-position="260">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/log4j2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="13" selection-end-line="27" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/MobileInternetRateFactoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/repository/service/ComparatorPrice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="11" column="5" selection-start-line="7" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#246#247#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/repository/service/SearchByName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/DefaultRateFactoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/InternetRateFactoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/exception/GeneralException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/task/repository/MobileCompany.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" column="75" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -899,7 +940,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>lombok</last-edited>
+          <last-edited>log4j-api-2.11.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -1,11 +1,11 @@
-package by.javatr.task2.parser;
+package by.javatr.task2.reader;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class FileReader {
-    private String readFromFile( String path) {
+    public static String readFromFile( String path) {
         String text = "";
         try {
             FileInputStream file = new FileInputStream(path);

@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="76a647e1-cea9-43c0-9b7a-32dd76358c66" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Task1Mobile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1Mobile/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1Mobile/src/by/javatr/task/creator/MobileInternetRateFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1Mobile/src/by/javatr/task/creator/MobileInternetRateFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1Mobile/src/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1Mobile/src/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/data/text" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/data/text" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/entity/Composite.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/entity/Composite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/entity/LeafWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/entity/LeafWord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/entity/TypeOfComposite.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/entity/TypeOfComposite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/exception/GeneralException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/exception/GeneralException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/CompositeText.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/CompositeText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/LexemParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/LexemParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/ParagraphParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/ParagraphParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/SentenseParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/SentenseParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/WordParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/parser/WordParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/reader/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/reader/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/Sorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/Sorter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/comparator/LengthComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/comparator/LengthComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/comparator/WordComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/comparator/WordComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/comparator/WordLengthComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/comparator/WordLengthComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task1/MyThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task1/MyThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task10/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task10/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task10/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task10/Producer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task10/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task10/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task11/CommonResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task11/CommonResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task11/CountThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task11/CountThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task11/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task11/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task12/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task12/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task12/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task12/Producer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task12/ProducerConsumerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task12/ProducerConsumerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task12/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task12/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task13/CommonResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task13/CommonResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task13/CountThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task13/CountThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task13/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task13/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task14/Philosopher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task14/Philosopher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task14/PhilosopherApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task14/PhilosopherApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task15/ChannelPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task15/ChannelPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task19/CalcCallable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task19/CalcCallable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task2/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task2/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task2/RunnablePerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task2/RunnablePerson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task20/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task20/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task21/PhaseThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task21/PhaseThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task21/PhaserApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task21/PhaserApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task3/PriorThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task3/PriorThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task3/PriorityRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task3/PriorityRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task4/JoinThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task4/JoinThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task4/RunnerJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task4/RunnerJoin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task5/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task5/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task5/RunnerThreadToDisable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task5/RunnerThreadToDisable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task5/ThreadToDisable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task5/ThreadToDisable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task6/CountThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task6/CountThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task6/ThreadsApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task6/ThreadsApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task7/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task7/Resource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task8/TwoThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task8/TwoThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task9/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task9/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task9/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task9/Producer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task9/ProducerConsumerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task9/ProducerConsumerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/javatr/thread/task9/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/javatr/thread/task9/Store.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task2/Person.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task1/MyThread.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task2/RunnablePerson.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task3/PriorityRunner.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task3/PriorThread.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task4/JoinThread.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task4/RunnerJoin.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task5/Runner.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task5/ThreadToDisable.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/RunnerThreadToDisable.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task5/RunnerThreadToDisable.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task6/CountThread.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task6/ThreadsApp.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task7/Resource.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task8/TwoThread.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task9/Consumer.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task9/Producer.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task9/ProducerConsumerApp.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task9/Store.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task10/Consumer.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task10/Producer.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task10/Store.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task10/ProducerComsumerAppNotify.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task11/CommonResource.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task11/CountThread.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task11/Runner.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task12/Consumer.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task12/Producer.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task12/ProducerConsumerApp.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task12/Store.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task13/CommonResource.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task13/CountThread.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task13/Runner.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task14/Philosopher.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task14/PhilosopherApp.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task15/ResourсeException.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task15/ChannelPool.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task19/CalcCallable.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task20/Subject.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task21/PhaseThreads.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task21/PhaseThread.java" />
+        <option value="$PROJECT_DIR$/src/by/javatr/thread/task21/PhaserApp.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="795" />
+    <option name="width" value="1150" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/Sorter.java" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="by.javatr.thread.task15" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.TwoThread">
+    <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.javatr.thread.task5.Runner" />
+      <module name="demoThread" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.javatr.thread.task5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunnerJoin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.javatr.thread.task4.RunnerJoin" />
+      <module name="demoThread" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.javatr.thread.task4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunnerThreadToDisable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.javatr.thread.task5.RunnerThreadToDisable" />
+      <module name="demoThread" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.javatr.thread.task5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThreadsApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.javatr.thread.task6.ThreadsApp" />
+      <module name="demoThread" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.javatr.thread.task6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TwoThread" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.javatr.thread.task8.TwoThread" />
+      <module name="demoThread" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.javatr.thread.task8.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TwoThread" />
+        <item itemvalue="Application.ThreadsApp" />
+        <item itemvalue="Application.RunnerThreadToDisable" />
+        <item itemvalue="Application.Runner" />
+        <item itemvalue="Application.RunnerJoin" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="76a647e1-cea9-43c0-9b7a-32dd76358c66" name="Default Changelist" comment="" />
+      <created>1559149864776</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1559149864776</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3033557" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.09065156" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3295129" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+    </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/by/javatr/thread/task2/RunnablePerson.java</url>
+          <line>14</line>
+          <properties class="by.javatr.thread.task2.RunnablePerson" method="main">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="745" column="16" selection-start-line="745" selection-start-column="16" selection-end-line="745" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task2/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding>
+            <element signature="e#115#116#0" expanded="true" />
+            <element signature="e#134#135#0" expanded="true" />
+            <element signature="e#174#175#0" expanded="true" />
+            <element signature="e#195#196#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task3.java" />
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task2/RunnablePerson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="18" column="49" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
+          <folding>
+            <element signature="e#117#118#0" expanded="true" />
+            <element signature="e#144#145#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task1/MyThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task3/PriorityRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task3/PriorThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="e#110#111#0" expanded="true" />
+            <element signature="e#133#134#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task5/Runner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task4/RunnerJoin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task4/JoinThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+          <folding>
+            <element signature="e#102#103#0" expanded="true" />
+            <element signature="e#129#130#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task5/ThreadToDisable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#132#133#0" expanded="true" />
+            <element signature="e#162#163#0" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
+            <element signature="e#217#218#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task5/RunnerThreadToDisable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task6/CountThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+          <folding>
+            <element signature="e#131#132#0" expanded="true" />
+            <element signature="e#159#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task6/ThreadsApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task7/Resource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task8/TwoThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+          <folding>
+            <element signature="e#204#703#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#740#1048#0" expanded="true" />
+            <element signature="e#1047#1048#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task9/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+          <folding>
+            <element signature="e#232#233#0" expanded="true" />
+            <element signature="e#266#267#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task9/Producer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+          <folding>
+            <element signature="e#215#216#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task9/ProducerConsumerApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task9/Store.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task10/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#150#151#0" expanded="true" />
+            <element signature="e#184#185#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task10/Producer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#152#153#0" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task10/Store.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task10/ProducerConsumerAppNotify.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task11/CommonResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task11/CountThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task11/Runner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task12/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#133#134#0" expanded="true" />
+            <element signature="e#167#168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task12/Producer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding>
+            <element signature="e#134#135#0" expanded="true" />
+            <element signature="e#166#167#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task12/ProducerConsumerApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task12/Store.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task13/CommonResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task13/CountThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task13/Runner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task14/Philosopher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task14/PhilosopherApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task15/ResourсeException.java" />
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task15/ChannelPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+            <element signature="e#472#473#0" expanded="true" />
+            <element signature="e#931#932#0" expanded="true" />
+            <element signature="e#965#966#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task19/CalcCallable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task21/Phase.java" />
+    <entry file="file://$PROJECT_DIR$/../Task2/src/by/javatr/task2/service/Sorter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task20/Subject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task21/PhaseThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/javatr/thread/task21/PhaserApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
