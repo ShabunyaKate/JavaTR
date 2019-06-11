@@ -1,38 +1,38 @@
 package by.javatr.task3.controller;
 
+import by.javatr.task3.creator.MatrixCreator;
+import by.javatr.task3.creator.ThreadCreator;
 import by.javatr.task3.entity.Matrix;
-import by.javatr.task3.entity.RunnableChanger;
+import by.javatr.task3.exception.GeneralException;
+import by.javatr.task3.reader.EntityFileReader;
+import by.javatr.task3.service.MatrixPresentation;
+import by.javatr.task3.service.ThreadStarter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Runner {
+    private static final Logger log= LogManager.getLogger(Runner.class);
     public static void main(String[] args) {
-        ReentrantLock locker=new ReentrantLock();
-        Matrix matrix=Matrix.getInstance(8,locker);
-        matrix.show();
-        RunnableChanger changer1=new RunnableChanger(100,matrix);
-        RunnableChanger changer2=new RunnableChanger(200,matrix);
-        RunnableChanger changer3=new RunnableChanger(300,matrix);
-        RunnableChanger changer4=new RunnableChanger(400,matrix);
-        RunnableChanger changer5=new RunnableChanger(500,matrix);
-        RunnableChanger changer6=new RunnableChanger(600,matrix);
-        Thread thread6=new Thread(changer6);
-        Thread thread5=new Thread(changer5);
-        Thread thread1=new Thread(changer1);
-        Thread thread2=new Thread(changer2);
-        Thread thread3=new Thread(changer3);
-        Thread thread4=new Thread(changer4);
-        thread1.start();
-        thread2.start();
-        thread3.start();
-        thread4.start();
-        thread5.start();
-        thread6.start();
         try {
-            Thread.sleep(10000);
+            List<String> lines = EntityFileReader.readFromFile("matrix");
+            ReentrantLock locker = new ReentrantLock();
+            Matrix matrix = MatrixCreator.createMatrix(lines, locker);
+            MatrixPresentation.show(matrix);
+            List<String> lines1 = EntityFileReader.readFromFile("threads");
+            List<Thread> threads = ThreadCreator.createThreads(lines1, matrix);
+            ThreadStarter.startThreads(threads);
+            try {
+                TimeUnit.SECONDS.sleep(15);//Main thread sleep
+            } catch (InterruptedException e) {
+            }
+            MatrixPresentation.show(matrix);
+        }catch (GeneralException e){
+       log.error(e);
         }
-        catch (InterruptedException e){
-            System.out.println("Эусепшон в мейне");
-        }
-        matrix.show();
+
     }
 }

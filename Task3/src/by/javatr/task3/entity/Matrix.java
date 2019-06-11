@@ -1,64 +1,85 @@
 package by.javatr.task3.entity;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.concurrent.locks.ReentrantLock;
 
+/**Class wrapper for matrix
+ * Singletone
+ * rows=columns=n
+ * diagonal elements = 0
+ */
 public class Matrix {
+    private static final Logger log= LogManager.getLogger(Matrix.class);
+    /**instance-ref to object(singletone)*/
     private static Matrix instance;
-    private int[ ][ ] a;
-    private int n;
-    private boolean[] keysModified;
-    private ReentrantLock locker;
+    public static final int ZERO=0;
 
-    public static Matrix getInstance(int nn, ReentrantLock locker) {
+    private int[ ][ ] matrix;
+    /** length of matrix*/
+    private int length;
+
+    private ReentrantLock locker;
+    /** Counter for changing element*/
+    private  int COUNTER=0;
+
+    /**
+     * @param i row coordinate
+     * @param j column coordinate
+     * @return element on position i, j
+     */
+    public int getElement(int i,int j){
+        return matrix[i][j];
+    }
+    public  int getCOUNTER() {
+        return COUNTER;
+    }
+
+    public int getLength(){
+        return length;
+    }
+    /**synchronised singletone*/
+    public static Matrix getInstance(int[][] matrix, ReentrantLock locker) {
         if (instance == null) {
-            synchronized (Matrix.class) {
+            locker.lock(); {
                 if (instance == null) {
-                    instance = new Matrix(nn, locker);
+                    instance = new Matrix(matrix, locker);
                 }
             }
+            locker.unlock();
         }
         return instance;
     }
 
-      private Matrix(int nn,ReentrantLock locker) {
-        n = nn;
-        a = new int[n][n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                a[i][j] = (int)(Math.random() * 5);
-            }
-        }
-        keysModified=new boolean[n];
+      private Matrix(int[][] matrix,ReentrantLock locker) {
+        this.matrix=matrix;
+        this.length=matrix.length;
         this.locker=locker;
+        /** 0 will be in diagonal positions*/
+        this.clearDiagonal();
     }
-    public Matrix(int[][] a){
-        this.a=a;
-        this.n=a.length;
-    }
-    public void show(){
-        for (int i = 0; i < n; i++) {
-            System.out.println(Arrays.toString(a[i]));
+    /** clear element in diagonal positions(make 0)*/
+    private void clearDiagonal(){
+        for(int i=ZERO;i<length;i++){
+            matrix[i][i]=ZERO;
         }
     }
+    /**@metod changed diagonal elements(for threads)
+     * synchronised(lockers)
+     * change only one time - one position
+     * @param threadN-is unique number of thread, that replace zero
+     */
     public void changeValue(int threadN) {
         locker.lock();
-        for (int i = 0; i < n; i++) {
-            if (!keysModified[i]) {
-                a[i][i] = threadN;
-                keysModified[i] = true;
+        for (int i =COUNTER; i < length; i++) {
+            if(matrix[i][i]==ZERO) {
+                matrix[i][i] = threadN;
+                log.info(Thread.currentThread().getName()+" changed element in position["+i+","+i+"]");
+                ++COUNTER;
                 break;
             }
         }
         locker.unlock();
-    }
-    public boolean isFinallyChanged(){
-        for (int i = 0; i < n; i++) {
-            if (!keysModified[i]) {
-                return false;
-            }
-        }
-      return true;
     }
 }
