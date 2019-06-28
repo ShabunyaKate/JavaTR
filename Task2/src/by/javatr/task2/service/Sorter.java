@@ -1,7 +1,7 @@
 package by.javatr.task2.service;
 
 import by.javatr.task2.entity.Composite;
-import by.javatr.task2.entity.Entity;
+import by.javatr.task2.entity.Component;
 import by.javatr.task2.entity.TypeOfComposite;
 import by.javatr.task2.exception.GeneralException;
 import by.javatr.task2.service.comparator.LengthComparator;
@@ -14,27 +14,30 @@ import java.util.Collections;
 import java.util.List;
 
 public class Sorter {
-    private static final Logger log= LogManager.getLogger(Sorter.class);
+    private static final Logger log = LogManager.getLogger(Sorter.class);
+
     public static Composite sortParagraph(Composite text) {//абзац по колво предложений
         Composite newText;
-        List<Entity> partList=text.copyEntity();
-        Collections.sort(partList,new LengthComparator());
-        newText=new Composite(partList, TypeOfComposite.TEXT);
+        List<Component> partList = text.copyEntity();
+        Collections.sort(partList, new LengthComparator());
+        newText = new Composite(partList, TypeOfComposite.TEXT);
         return newText;
     }
-    public static Composite sortSentense(Composite text, String str) throws GeneralException{ // предлродения в абзаце по количеству вхождений слова
-        if(str==null) throw new GeneralException("Empty string");
-        Composite newText=new Composite(TypeOfComposite.TEXT);
-        for(int i=0;i<text.getLength();i++) {
-            Composite paragraph=text.getCompositeElement(i);
-            List<Entity> paragraphList=paragraph.copyEntity();
-            Collections.sort(paragraphList,new WordComparator(str));
+
+    public static Composite sortSentense(Composite text, String str) throws GeneralException { // предлродения в абзаце по количеству вхождений слова
+        if (str == null) throw new GeneralException("Empty string");
+        Composite newText = new Composite(TypeOfComposite.TEXT);
+        for (int i = 0; i < text.getLength(); i++) {
+            Composite paragraph = text.getCompositeElement(i);
+            List<Component> paragraphList = paragraph.copyEntity();
+            Collections.sort(paragraphList, new WordComparator(str));
             newText.add(new Composite(paragraphList, TypeOfComposite.PARAGRAPH));
         }
         return newText;
     }
+
     public static Composite sortWord(Composite text) {// сортировка слов в предложении по длине
-        Composite newtext=new Composite(TypeOfComposite.TEXT);
+        Composite newtext = new Composite(TypeOfComposite.TEXT);
         Composite paragraph;
         Composite sentense;
         try {
@@ -47,19 +50,19 @@ public class Sorter {
                 }
                 newtext.add(newparagraph);
             }
-        }
-        catch(GeneralException e){
+        } catch (GeneralException e) {
             log.error(e.getMessage());
         }
         return newtext;
     }
-        private static Composite sortWordSentense(Composite sentense) throws GeneralException {
-            if (TypeOfComposite.SENTENSE.equals(sentense.getType())) {
-                List<Entity> listSentense = sentense.copyEntity();
-                Collections.sort(listSentense, new WordLengthComparator());
-                return new Composite(listSentense, TypeOfComposite.SENTENSE);
-            } else
-                throw new GeneralException("Composite is not sentense");
-        }
+
+    private static Composite sortWordSentense(Composite sentense) throws GeneralException {
+        if (TypeOfComposite.SENTENSE.equals(sentense.getType())) {
+            List<Component> listSentense = sentense.copyEntity();
+            Collections.sort(listSentense, new WordLengthComparator());
+            return new Composite(listSentense, TypeOfComposite.SENTENSE);
+        } else
+            throw new GeneralException("Composite is not sentense");
     }
+}
 

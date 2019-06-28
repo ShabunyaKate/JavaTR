@@ -2,7 +2,7 @@ package by.javatr.task2.entity;
 
 import java.util.Objects;
 
-public class LeafWord implements Entity{
+public class LeafWord implements Component {
      private String word;
 
      public LeafWord(String word) {

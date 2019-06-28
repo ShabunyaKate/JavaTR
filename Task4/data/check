@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="flowers">
+        <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="flower" minOccurs="16" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="flower">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="name" type="xs:string" default="unknown"/>
+                <xs:element name="origin" type="xs:string" default="Earth"/>
+                <xs:element ref="visual_param"/>
+                <xs:element ref="growing_tips"/>
+                <xs:element name="landing_date" type="xs:date"/>
+            </xs:all>
+            <xs:attribute name="id" type="xs:ID"/>
+            <xs:attribute name="soil" type="soilType" use="required"/>
+            <xs:attribute name="multiplying" type="multiplyingType" use="optional" default="seeds"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="visual_param">
+    <xs:complexType>
+        <xs:all>
+            <xs:element name="stalk_color" type="xs:string" default="green"/>
+            <xs:element name="leaf_color" type="xs:string" default="green"/>
+            <xs:element name="flower_size" type="xs:positiveInteger" default="1"/>
+        </xs:all>
+    </xs:complexType>
+    </xs:element>
+    <xs:element name="growing_tips">
+    <xs:complexType>
+        <xs:all>
+        <xs:element name="temperature" type="xs:positiveInteger" default="22"/>
+        <xs:element name="photophilious" type="xs:boolean" default="true"/>
+        <xs:element name="watering" type="xs:positiveInteger" default="100"/>
+        </xs:all>
+    </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="multiplyingType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="seeds"/>
+            <xs:enumeration value="leafs"/>
+            <xs:enumeration value="stalks"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="soilType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="podzolic"/>
+            <xs:enumeration value="ground"/>
+            <xs:enumeration value="sod-podzolic"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

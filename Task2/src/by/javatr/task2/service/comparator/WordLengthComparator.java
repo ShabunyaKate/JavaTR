@@ -1,12 +1,12 @@
 package by.javatr.task2.service.comparator;
 
-import by.javatr.task2.entity.Entity;
+import by.javatr.task2.entity.Component;
 
 import java.util.Comparator;
 
-public class WordLengthComparator implements Comparator<Entity> {
+public class WordLengthComparator implements Comparator<Component> {
     @Override
-    public int compare(Entity o1, Entity o2) {
+    public int compare(Component o1, Component o2) {
         return o1.leafLength() - o2.leafLength();
     }
 }
