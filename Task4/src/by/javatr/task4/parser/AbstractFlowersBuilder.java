@@ -4,8 +4,6 @@ import by.javatr.task4.entity.Flower;
 import java.util.HashSet;
 import java.util.Set;
 public abstract class AbstractFlowersBuilder {
-
-        // protected так как к нему часто обращаются из подкласса
         protected Set<Flower> flowers;
         public AbstractFlowersBuilder() {
             flowers = new HashSet<Flower>();

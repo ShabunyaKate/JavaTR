@@ -1,6 +1,9 @@
 package by.javatr.task4.parser;
 
 import by.javatr.task4.entity.*;
+import by.javatr.task4.servlet.ParsingServlet;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -15,17 +18,18 @@ import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
+
 public class FlowersDOMBuilder extends AbstractFlowersBuilder {
+    private static final Logger log= LogManager.getLogger(FlowersDOMBuilder.class);
     private DocumentBuilder docBuilder;
 
     public FlowersDOMBuilder() {
         this.flowers = new HashSet<Flower>();
-        // создание DOM-анализатора
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             docBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            System.err.println("Ошибка конфигурации парсера: " + e);
+           log.error("Ошибка конфигурации парсера: " + e);
         }
     }
 
@@ -41,10 +45,8 @@ public class FlowersDOMBuilder extends AbstractFlowersBuilder {
     public void buildSetFlowers(String fileName) {
         Document doc = null;
         try {
-            // parsing XML-документа и создание древовидной структуры
             doc = docBuilder.parse(fileName);
             Element root = doc.getDocumentElement();
-            // получение списка дочерних элементов <flower>
             NodeList flowersList = root.getElementsByTagName("flower");
             for (int i = 0; i < flowersList.getLength(); i++) {
                 Element flowerElement = (Element) flowersList.item(i);
@@ -52,16 +54,15 @@ public class FlowersDOMBuilder extends AbstractFlowersBuilder {
                 flowers.add(flower);
             }
         } catch (IOException e) {
-            System.err.println("File error or I/O error: " + e);
+            log.error("File error or I/O error: " + e);
         } catch (SAXException e) {
-            System.err.println("Parsing failure: " + e);
+            log.error("Parsing failure: " + e);
         }
     }
 
     private Flower buildFlower(Element flowerElement) {
         Flower flower = new Flower();
-        // заполнение объекта flower
-        flower.setId(flowerElement.getAttribute("id"));//FlowerEnum.ID.toString().toLowerCase())
+        flower.setId(flowerElement.getAttribute("id"));
         flower.setSoil(SoilType.fromValue(flowerElement.getAttribute("soil")));
         flower.setMultiplying(MultiplyingType.fromValue(flowerElement.getAttribute("multiplying")));
         flower.setName(getElementTextContent(flowerElement, "name"));
@@ -91,7 +92,6 @@ public class FlowersDOMBuilder extends AbstractFlowersBuilder {
         return flower;
     }
 
-    // получение текстового содержимого тега
     private static String getElementTextContent(Element element, String elementName) {
         NodeList nList = element.getElementsByTagName(elementName);
         Node node = nList.item(0);
@@ -99,5 +99,4 @@ public class FlowersDOMBuilder extends AbstractFlowersBuilder {
         return text;
     }
 }
-
 

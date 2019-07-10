@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.Set;
 
 import by.javatr.task4.entity.Flower;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
@@ -11,16 +13,14 @@ import org.xml.sax.helpers.XMLReaderFactory;
 public class FlowersSAXBuilder extends AbstractFlowersBuilder {
     private FlowerHandler fh;
     private XMLReader reader;
-
+    private static final Logger log= LogManager.getLogger(FlowersSAXBuilder.class);
     public FlowersSAXBuilder() {
-        // создание SAX-анализатора
         fh = new FlowerHandler();
         try {
-            // создание объекта-обработчика
             reader = XMLReaderFactory.createXMLReader();
             reader.setContentHandler(fh);
         } catch (SAXException e) {
-            System.err.print("ошибка SAX парсера: " + e);
+            log.error("ошибка SAX парсера: " + e);
         }
     }
 
@@ -35,12 +35,11 @@ public class FlowersSAXBuilder extends AbstractFlowersBuilder {
     @Override
     public void buildSetFlowers(String fileName) {
         try {
-            // разбор XML-документа
             reader.parse(fileName);
         } catch (SAXException e) {
-            System.err.print("ошибка SAX парсера: " + e);
+            log.error("ошибка SAX парсера: " + e);
         } catch (IOException e) {
-            System.err.print("ошибка I/О потока: " + e);
+            log.error("ошибка I/О потока: " + e);
         }
         flowers = fh.getFlowers();
     }
