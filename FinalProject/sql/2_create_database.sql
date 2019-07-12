@@ -1,0 +1,6 @@
+CREATE DATABASE `fest_db` DEFAULT CHARACTER SET utf8;
+
+GRANT SELECT,INSERT,UPDATE,DELETE
+ON `fest_db`.*
+TO fest_user@localhost
+IDENTIFIED BY 'password';
