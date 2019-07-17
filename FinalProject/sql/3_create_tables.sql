@@ -74,7 +74,7 @@ CREATE TABLE `ticket_user` (
 	`id` INTEGER PRIMARY KEY AUTO_INCREMENT,
 	`ticket_id` INTEGER NOT NULL,
 	`count` TINYINT UNSIGNED NOT NULL,
-	`user_id`INTEGER NOT NULL,
+	`user_id` INTEGER NOT NULL,
 	FOREIGN KEY (`ticket_id`) REFERENCES `ticket` (`id`),
 	FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 	ON UPDATE CASCADE

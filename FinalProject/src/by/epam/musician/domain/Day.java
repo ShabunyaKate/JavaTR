@@ -1,4 +1,4 @@
-package by.javatr.finaltask.domain;
+package by.epam.musician.domain;
 
 import java.sql.Date;
 
