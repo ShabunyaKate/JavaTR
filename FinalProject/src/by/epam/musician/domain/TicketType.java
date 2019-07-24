@@ -1,13 +1,27 @@
 package by.epam.musician.domain;
 
-public class TicketType extends Entity {
+
+public enum TicketType {
+    VIP("vip"),
+    FAN_ZONE("fan_zone"),
+    DANCE_FlOOR("dance_FLOOR");
+
+
     private String type;
+
+    private TicketType(String type) {
+        this.type = type;
+    }
 
     public String getType() {
         return type;
     }
 
-    public void setType(String name) {
-        this.type = type;
+    public Integer getId() {
+        return ordinal();
+    }
+
+    public static TicketType getById(Integer id) {
+        return TicketType.values()[id];
     }
 }

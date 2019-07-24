@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import java.sql.*;
 public class UserInfoDaoImpl extends DaoImpl implements UserInfoDao {
     private static Logger logger = LogManager.getLogger(UserInfoDaoImpl.class);
+
     @Override
     public Integer create(UserInfo userInfo) throws TaskException {
         Connection con = null;
@@ -100,7 +101,6 @@ public class UserInfoDaoImpl extends DaoImpl implements UserInfoDao {
             } catch(SQLException | NullPointerException e) {}
         }
     }
-
     @Override
     public void delete(Integer id) throws TaskException {
         Connection con = null;

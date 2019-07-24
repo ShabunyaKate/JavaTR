@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 
-
 public class LoginCommandImpl implements BaseCommand {
 
     private LoginService service = new LoginServiceImpl();
@@ -28,7 +27,7 @@ public class LoginCommandImpl implements BaseCommand {
             return RESPONSE_PAGE_USER_MAIN;
         }
         // проверяем роль
-        return RESPONSE_PAGE_ERROR;
+        return PAGE_ERROR;
     }
-
 }
+

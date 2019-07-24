@@ -6,6 +6,7 @@ public class User extends Entity {
     private String login;
     private String password;
     private Role role;
+    private String avatar;
 
     public void setUserInfo(UserInfo userInfo) {
         this.userInfo = userInfo;
@@ -23,6 +24,8 @@ public class User extends Entity {
         this.role = role;
     }
 
+    public void setAvatar(String avatar){ this.avatar=avatar;}
+
     public UserInfo getUserInfo() {
         return userInfo;
     }
@@ -38,4 +41,6 @@ public class User extends Entity {
     public Role getRole() {
         return role;
     }
+
+    public String getAvatar(){ return avatar;}
 }

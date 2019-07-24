@@ -1,4 +1,4 @@
-package by.epam.musician.action.impl;
+package by.epam.musician.action.impl.user;
 
 import by.epam.musician.action.BaseCommand;
 import by.epam.musician.dao.UserInfoDao;
@@ -24,11 +24,10 @@ public class RegistrationCommandImpl implements BaseCommand {
         String birthday = request.getParameter("birthday");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
-
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-
-        UserInfo userInfo=new UserInfo();
+        String avatar =request.getParameter("avatar");
+             UserInfo userInfo=new UserInfo();
         //Это в фабрику и валидацию
         userInfo.setName(name);
         userInfo.setSurname(surname);
@@ -40,6 +39,7 @@ public class RegistrationCommandImpl implements BaseCommand {
         user.setRole(Role.USER);
         user.setLogin(login);
         user.setPassword(password);
+        user.setAvatar(avatar);
         UserDaoImpl userDao=new UserDaoImpl();
         try{
            Integer info_id=userInfoDao.create(userInfo);
@@ -53,8 +53,7 @@ public class RegistrationCommandImpl implements BaseCommand {
             }catch (Exception e){
 
         }
-
-        return RESPONSE_PAGE_ERROR;
+        return PAGE_ERROR;
     }
 
 }

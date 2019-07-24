@@ -9,7 +9,7 @@ public class DefaultCommandImpl implements BaseCommand {
 
     @Override
     public String execute(HttpServletRequest request) {
-        return RESPONSE_PAGE_ERROR;
+        return PAGE_ERROR;
     }
 
 }

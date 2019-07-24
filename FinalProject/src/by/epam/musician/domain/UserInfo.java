@@ -8,7 +8,6 @@ public class UserInfo extends Entity {
     private Date birthdate;
     private String email;
     private String phone;
-
     public void setName(String name) {
         this.name = name;
     }
