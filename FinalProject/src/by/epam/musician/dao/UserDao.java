@@ -7,6 +7,6 @@ import by.epam.musician.exception.TaskException;
 import java.util.List;
 
 public interface UserDao extends Dao<User>{
-   User getUserByLoginAndPassword(String login, String password);
+   User getUserByLoginAndPassword(String login, String password) throws TaskException ;
    List<User> readAllUsers(Role role) throws TaskException;
 }

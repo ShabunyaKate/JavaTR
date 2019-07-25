@@ -12,5 +12,8 @@ public interface BaseCommand {
     String PAGE_SONG_TABLE="/WEB-INF/jsp/musician/song_table.jsp";
     String PAGE_DEFAULT="/index.jsp";
     String PAGE_TABLE_USER="/WEB-INF/jsp/admin/user_table.jsp";
+    String PAGE_ADMIN_INDEX="/WEB-INF/jsp/admin/admin_index.jsp";
+    String PAGE_MUSICIAN_INDEX="/WEB-INF/jsp/musician/musician_index.jsp";
+    String PAGE_USER_INDEX="/WEB-INF/jsp/user/user_index.jsp";
     String execute(HttpServletRequest request);
 }

@@ -1,6 +1,7 @@
 package by.epam.musician.action.impl;
 
 import by.epam.musician.action.BaseCommand;
+import by.epam.musician.domain.Role;
 import by.epam.musician.domain.User;
 import by.epam.musician.service.LoginService;
 import by.epam.musician.service.impl.LoginServiceImpl;
@@ -17,17 +18,32 @@ public class LoginCommandImpl implements BaseCommand {
     @Override
     public String execute(HttpServletRequest request) {
 
-        String login = request.getParameter("inputEmail");
-        String password = request.getParameter("inputPassword");
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+        String path=null;
+        try {
+            User user = service.authorizeUser(login, password);
+            if (user != null) {
+                HttpSession session = request.getSession();
+                session.setAttribute("user", user);
 
-        User user = service.authorizeUser(login, password);
-        if (user != null){
-            HttpSession session = request.getSession();
-            session.setAttribute("user", user);
-            return RESPONSE_PAGE_USER_MAIN;
+                switch (user.getRole()) {
+                    case ADMINISTRATOR:
+                        path=PAGE_ADMIN_INDEX;
+                    break;
+                    case MUSICIAN:
+                        path=PAGE_MUSICIAN_INDEX;
+                    break;
+                    case USER:
+                        path=PAGE_USER_INDEX;
+                    break;
+                }
+                return path;
+            }
+        } catch (Exception e) {
+           path=PAGE_ERROR;
         }
-        // проверяем роль
-        return PAGE_ERROR;
-    }
-}
+        return path;
+    }}
+
 

@@ -137,7 +137,7 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
         }
     }
     @Override
-    public User getUserByLoginAndPassword(String login, String password) {
+    public User getUserByLoginAndPassword(String login, String password)  throws TaskException  {
         Connection con = null;
         String sql = "Select * From `user` where `login` = ? and `password` = ?";
         PreparedStatement statement = null;
@@ -152,17 +152,19 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
             if(resultSet.next()){
                 user = new User();
                 user.setId(resultSet.getInt("id"));
+                Integer id=resultSet.getInt("id");
                 user.setLogin(resultSet.getString("login"));
                 user.setPassword(resultSet.getString("password"));
                 user.setRole(Role.getById(resultSet.getInt("role")));
+                Integer avatar_id=resultSet.getInt("avatar_id");
+                user.setAvatar(avatarDao.read(avatar_id));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new TaskException();
         }finally {
             closeConnection(con);
+            return user;
         }
-
-        return user;
     }
 
     @Override

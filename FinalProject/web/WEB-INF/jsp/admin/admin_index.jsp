@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 21kat
-  Date: 24.07.2019
-  Time: 22:37
+  Date: 25.07.2019
+  Time: 2:24
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,23 +14,20 @@
     <link href="css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-primary text-white navbar-dark  justify-content-center fixed-top">
-    <a class="navbar-brand" href="index.jsp">Leto</a><!--поменять jsp-->
+<nav class="navbar navbar-expand-sm bg-danger text-white navbar-dark  justify-content-center fixed-top">
+    <a class="navbar-brand" href="index.jsp">Leto</a>
     <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="#">Купить билет</a>
+            <a class="nav-link" href="#">Юзеры</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="#">Moи билеты</a>
+            <a class="nav-link" href="#">Музыканты</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="#">Редактирование данных</a>
+            <a class="nav-link" href="#">Дни</a>
         </li>
         <li class="nav-item active">
-            <form  action="ProjectServlet" method="post">
-                <button  class="btn btn-primary btn-block " type="submit">Sign Out</button>
-                <input type="hidden" name="command" value="sign_out">
-            </form>
+            <a class="nav-link" href="#">Билеты</a>
         </li>
     </ul>
 </nav>
