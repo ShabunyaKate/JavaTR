@@ -12,24 +12,25 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="leto.png" type="image/png">
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/1.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-primary text-white navbar-dark  justify-content-center fixed-top">
     <a class="navbar-brand" href="index.jsp">Leto</a>
     <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="#">Участники</a>
+            <a class="nav-link" href="ProjectServlet?link=table_fest">Участники</a>
         </li>
         <li class="nav-item active">
-            <form  action="ProjectServlet" method="post">
-                <button  class="btn btn-primary btn-block " type="submit">Регистрация</button>
-                <input type="hidden" name="command" value="sign_in">
-            </form>
+            <a class="nav-link" href="ProjectServlet?link=sign_in">Войти</a>
         </li>
     </ul>
 </nav>
 <div>
-    <h3 class="text-center text-white pt-5">Registration</h3>
+    <hr class="featurette-divider">
+    <hr class="featurette-divider">
     <div class="container">
         <div  class="row justify-content-center align-items-center">
             <div  class="col-md-6">
@@ -95,11 +96,10 @@
         </div>
     </div>
 </div>
-
 <!-- Footer -->
 <footer class="page-footer font-small bg-dark text-white cyan darken-3">
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
-        <a href="https://training.by/#/Home">training.by</a>
+        <label>Katerina Shabunya</label>
     </div>
 </footer>
 </body>

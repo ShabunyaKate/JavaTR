@@ -5,18 +5,18 @@
          version="3.1">
     <servlet>
         <servlet-name>ProjectServlet</servlet-name>
-        <servlet-class>by.epam.musician.controller.ProjectServlet</servlet-class>
+        <servlet-class>by.epam.fest.controller.ProjectServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ProjectServlet</servlet-name>
         <url-pattern>/ProjectServlet</url-pattern>
     </servlet-mapping>
-<!--    <filter>-->
-<!--        <filter-name>EncodingFilter</filter-name>-->
-<!--        <filter-class>EncodingFilter</filter-class>-->
-<!--    </filter>-->
-<!--    <filter-mapping>-->
-<!--        <filter-name>EncodingFilter</filter-name>-->
-<!--        <url-pattern>/InformationPortal</url-pattern>-->
-<!--    </filter-mapping>-->
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>by.epam.fest.controller.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

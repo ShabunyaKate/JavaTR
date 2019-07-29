@@ -1,0 +1,36 @@
+ 
+ h1 {  
+    text-align: center; 
+font-style: italic;
+font-size: 300%;
+color: blue;
+   } 
+
+ h2 {  
+    text-align: center; 
+font-style: italic;
+font-size: 300%;
+
+   }
+
+p2 {
+    text-align: center;
+    text-indent: 20px;
+    font-size: 125%;
+}
+P3 {
+    text-align: center;
+    color: black;
+    font-size: 150%;
+}
+ e1 {
+     text-align: center;
+     color: red;
+     font-size: 150%;
+ }
+ h3{
+     text-align: center;
+     font-style: italic;
+     font-size: 300%;
+     color: mediumspringgreen;
+ }
