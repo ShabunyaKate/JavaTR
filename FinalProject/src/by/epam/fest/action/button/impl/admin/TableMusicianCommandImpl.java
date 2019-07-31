@@ -7,6 +7,7 @@ import by.epam.fest.domain.Day;
 import by.epam.fest.domain.Musician;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,18 +15,14 @@ public class TableMusicianCommandImpl implements BaseCommand {
     @Override
     public String execute(HttpServletRequest request) {
         try {
-            DayDaoImpl dayDao = new DayDaoImpl();
-            List<Day> days = dayDao.readAllDays();
+            DayDaoImpl dayDao=new DayDaoImpl();
+            List<Day> days=dayDao.readAllDays();
             MusicianDaoImpl musicianDao=new MusicianDaoImpl();
-            List<Musician> musicians=new ArrayList<>();
-            int COUNT=0;
-            for (Day day: days) {
-                musicians=musicianDao.readAllMusicianByDay(day);
-                request.setAttribute("day"+COUNT,day);
-                request.setAttribute("musicians"+COUNT,musicians);
-                COUNT++;
-            }
-            return PAGE_TABLE_FEST;
+            List<Musician> musicians=musicianDao.readAllMusician();
+            HttpSession session=request.getSession(false);
+            session.setAttribute("musicians",musicians);
+            session.setAttribute("days",days);
+            return PAGE_ADMIN_MUSICIAN;
         }catch(Exception e){
             return PAGE_ERROR;
         }

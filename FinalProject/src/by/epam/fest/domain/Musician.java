@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Musician extends Entity {
-
     private User user;
     private Day day;
     private List<Song> songs = new ArrayList<>();

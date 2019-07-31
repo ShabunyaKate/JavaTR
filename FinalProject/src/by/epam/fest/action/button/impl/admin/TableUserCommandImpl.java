@@ -15,10 +15,10 @@ public class TableUserCommandImpl implements BaseCommand {
                 UserDao userDao=new UserDaoImpl();
                 List<User> users=userDao.readAllUsers(Role.USER);
                 request.setAttribute("users",users);
+                return PAGE_TABLE_USER;
             }catch(Exception e){
                 return PAGE_ERROR;
             }
-        return PAGE_TABLE_USER;
         }
     }
 

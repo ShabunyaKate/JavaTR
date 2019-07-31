@@ -1,5 +1,6 @@
 package by.epam.fest.dao.impl;
 
+import by.epam.fest.dao.DayDao;
 import by.epam.fest.dao.SongDao;
 import by.epam.fest.domain.Musician;
 import by.epam.fest.dao.MusicianDao;
@@ -20,7 +21,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
     @Override
     public Integer create(Musician musician) throws TaskException {
         Connection con = null;
-        String sql = "INSERT INTO `musician` (`user_id`, `day_id`) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO `musician` (`user_id`, `day_id`) VALUES (?, ?)";
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
@@ -203,5 +204,45 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
             }
         }
     }
+
+    @Override
+    public List<Musician> readAllMusician() throws TaskException {
+        Connection con = null;
+        String sql = "SELECT `id`, `user_id`,`day_id`  FROM `musician` ";
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            con = getDBConnection();
+            statement = con.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            List<Musician> musicians=new ArrayList<>();
+            Musician musician = null;
+            UserDaoImpl userDao=new UserDaoImpl();
+            DayDao dayDao=new DayDaoImpl();
+            while(resultSet.next()) {
+                musician = new Musician();
+                int  id=resultSet.getInt("id");
+                musician.setId(id);
+                int user_id=resultSet.getInt("user_id");
+                User user=userDao.read(user_id);
+                musician.setUser(user);
+                int day_id=resultSet.getInt("day_id");
+                Day day =dayDao.read(day_id);
+                musician.setDay(day);
+                musicians.add(musician);
+            }
+            return musicians;
+        } catch(SQLException e) {
+            throw new TaskException(e);
+        } finally {
+            try {
+                resultSet.close();
+            } catch(SQLException | NullPointerException e) {}
+            try {
+                statement.close();
+            } catch(SQLException | NullPointerException e) {}
+        }
+
     }
+}
 

@@ -10,4 +10,5 @@ import java.util.List;
 public interface MusicianDao extends Dao<Musician>{
     List<Musician> readAllMusicianByDay(Day day) throws TaskException;
     Musician read(User user) throws TaskException;
+    List<Musician> readAllMusician() throws TaskException;
 }

@@ -23,7 +23,10 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
         try {
             con = getDBConnection();
             statement = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, user.getUserInfo().getId());
+            if(user.getUserInfo()==null){
+                statement.setNull(1, java.sql.Types.INTEGER);
+            }
+            else statement.setInt(1, user.getUserInfo().getId());
             statement.setString(2, user.getLogin());
             statement.setString(3, user.getPassword());
             statement.setInt(4, user.getRole().getId());

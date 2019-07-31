@@ -16,7 +16,7 @@ CREATE TABLE `user_info`(
 
 CREATE TABLE `user` (
 	`id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-	`info_id` INTEGER NOT NULL ,
+	`info_id` INTEGER ,
 	`login` VARCHAR(255) NOT NULL UNIQUE,
 	`password` CHAR(10) NOT NULL,
 	/*
@@ -25,7 +25,7 @@ CREATE TABLE `user` (
 	 * 2 - (Role.USER)
 	 */
 	`role` TINYINT NOT NULL CHECK (`role` IN (0, 1, 2)),
-    `avatar_id` INTEGER NOT NULL,
+  `avatar_id` INTEGER NOT NULL,
     FOREIGN KEY (`info_id`) REFERENCES `user_info` (`id`)
         ON UPDATE CASCADE
 		    ON DELETE CASCADE,
