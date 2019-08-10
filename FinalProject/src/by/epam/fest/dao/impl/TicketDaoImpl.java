@@ -4,7 +4,7 @@ import by.epam.fest.domain.Ticket;
 import by.epam.fest.domain.TicketType;
 import by.epam.fest.dao.TicketDao;
 import by.epam.fest.domain.Day;
-import by.epam.fest.exception.TaskException;
+import by.epam.fest.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,7 +15,7 @@ import java.util.List;
 public class TicketDaoImpl extends DaoImpl implements TicketDao {
     private static Logger logger = LogManager.getLogger(TicketDaoImpl.class);
     @Override
-    public Integer create(Ticket ticket) throws TaskException {
+    public Integer create(Ticket ticket) throws DaoException {
         Connection con = null;
         String sql = "INSERT INTO `ticket` (`type`, `day_id`, `price`) VALUES (?, ?, ?)";
         PreparedStatement statement = null;
@@ -32,10 +32,10 @@ public class TicketDaoImpl extends DaoImpl implements TicketDao {
                 return resultSet.getInt(1);
             } else {
                 logger.error("There is no autoincremented index after trying to add record into table `ticket`");
-                throw  new TaskException();
+                throw  new DaoException();
             }
         } catch(SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -47,7 +47,7 @@ public class TicketDaoImpl extends DaoImpl implements TicketDao {
     }
 
     @Override
-    public Ticket read(Integer id) throws TaskException {
+    public Ticket read(Integer id) throws DaoException {
         Connection con = null;
         String sql = "SELECT `type`, `day_id`, `price` FROM `ticket` WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -69,7 +69,7 @@ public class TicketDaoImpl extends DaoImpl implements TicketDao {
             }
             return ticket;
         } catch(SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -81,7 +81,7 @@ public class TicketDaoImpl extends DaoImpl implements TicketDao {
     }
 
     @Override
-    public void update(Ticket ticket) throws TaskException {
+    public void update(Ticket ticket) throws DaoException {
         Connection con = null;
         String sql = "UPDATE `ticket` SET `type` = ?, `day_id` = ?, `price` = ? WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -93,7 +93,7 @@ public class TicketDaoImpl extends DaoImpl implements TicketDao {
             statement.setBigDecimal(3, ticket.getPrice());
             statement.executeUpdate();
         } catch(SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 statement.close();
@@ -102,7 +102,7 @@ public class TicketDaoImpl extends DaoImpl implements TicketDao {
     }
 
     @Override
-    public void delete(Integer id) throws TaskException {
+    public void delete(Integer id) throws DaoException {
         Connection con = null;
         String sql = "DELETE FROM `ticket` WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -112,7 +112,7 @@ public class TicketDaoImpl extends DaoImpl implements TicketDao {
             statement.setInt(1, id);
             statement.executeUpdate();
         } catch(SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 statement.close();
@@ -121,7 +121,7 @@ public class TicketDaoImpl extends DaoImpl implements TicketDao {
     }
 
     @Override
-    public List<Ticket> readAllTickets() throws TaskException {
+    public List<Ticket> readAllTickets() throws DaoException {
         Connection con = null;
         String sql = "SELECT `id`, `type`, `day_id`, `price` FROM `ticket`";
         PreparedStatement statement = null;
@@ -144,7 +144,7 @@ public class TicketDaoImpl extends DaoImpl implements TicketDao {
             }
             return tickets;
         } catch(SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();

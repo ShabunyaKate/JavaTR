@@ -3,7 +3,7 @@ package by.epam.fest.dao.impl;
 
 import by.epam.fest.dao.UserInfoDao;
 import by.epam.fest.domain.UserInfo;
-import by.epam.fest.exception.TaskException;
+import by.epam.fest.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,7 +12,7 @@ public class UserInfoDaoImpl extends DaoImpl implements UserInfoDao {
     private static Logger logger = LogManager.getLogger(UserInfoDaoImpl.class);
 
     @Override
-    public Integer create(UserInfo userInfo) throws TaskException {
+    public Integer create(UserInfo userInfo) throws DaoException {
         Connection con = null;
         String sql = "INSERT INTO `user_info` (`name`,`surname`,`birth_date`,`email`,`phone`) VALUES (?, ?, ?,?,?)";
         PreparedStatement statement = null;
@@ -31,10 +31,10 @@ public class UserInfoDaoImpl extends DaoImpl implements UserInfoDao {
                 return resultSet.getInt(1);
             } else {
                 logger.error("There is no autoincremented index after trying to add record into table `user_info`");
-                throw  new TaskException();
+                throw  new DaoException();
             }
         } catch(SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -46,7 +46,7 @@ public class UserInfoDaoImpl extends DaoImpl implements UserInfoDao {
     }
 
     @Override
-    public UserInfo read(Integer id) throws TaskException {
+    public UserInfo read(Integer id) throws DaoException {
         Connection con = null;
         String sql = "SELECT `name`,`surname`,`birth_date`,`email`,`phone` FROM `user_info` WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -68,7 +68,7 @@ public class UserInfoDaoImpl extends DaoImpl implements UserInfoDao {
             }
             return userInfo;
         } catch(SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -80,7 +80,7 @@ public class UserInfoDaoImpl extends DaoImpl implements UserInfoDao {
     }
 
     @Override
-    public void update(UserInfo userInfo) throws TaskException {
+    public void update(UserInfo userInfo) throws DaoException {
         Connection con = null;
         String sql = "UPDATE `user_info` SET `name` = ?, `surname` = ?, `birth_day` = ?, `email` = ?, `phone` = ? WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -94,7 +94,7 @@ public class UserInfoDaoImpl extends DaoImpl implements UserInfoDao {
             statement.setString(5,userInfo.getPhone());
             statement.executeUpdate();
         } catch(SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 statement.close();
@@ -102,7 +102,7 @@ public class UserInfoDaoImpl extends DaoImpl implements UserInfoDao {
         }
     }
     @Override
-    public void delete(Integer id) throws TaskException {
+    public void delete(Integer id) throws DaoException {
         Connection con = null;
         String sql = "DELETE FROM `user_info` WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -112,7 +112,7 @@ public class UserInfoDaoImpl extends DaoImpl implements UserInfoDao {
             statement.setInt(1, id);
             statement.executeUpdate();
         } catch(SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 statement.close();

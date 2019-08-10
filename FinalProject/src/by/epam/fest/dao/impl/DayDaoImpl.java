@@ -2,7 +2,7 @@ package by.epam.fest.dao.impl;
 
 import by.epam.fest.dao.DayDao;
 import by.epam.fest.domain.Day;
-import by.epam.fest.exception.TaskException;
+import by.epam.fest.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,7 +13,7 @@ import java.util.List;
 public class DayDaoImpl extends DaoImpl implements DayDao {
     private static Logger logger = LogManager.getLogger(DayDaoImpl.class);
     @Override
-    public Integer create(Day day) throws TaskException {
+    public Integer create(Day day) throws DaoException {
         Connection con = null;
             String sql = "INSERT INTO `day` (`date`) VALUES (?)";
             PreparedStatement statement = null;
@@ -28,10 +28,10 @@ public class DayDaoImpl extends DaoImpl implements DayDao {
                     return resultSet.getInt(1);
                 } else {
                     logger.error("There is no autoincremented index after trying to add record into table `day`");
-                    throw new TaskException();
+                    throw new DaoException();
                 }
             } catch(SQLException e) {
-                throw new TaskException(e);
+                throw new DaoException(e);
             } finally {
                 try {
                     resultSet.close();
@@ -42,8 +42,8 @@ public class DayDaoImpl extends DaoImpl implements DayDao {
             }
         }
     @Override
-    public Day read(Integer id) throws TaskException {
-        Connection con = null;
+    public Day read(Integer id) throws DaoException {
+             Connection con = null;
             String sql = "SELECT `date` FROM `day` WHERE `id` = ?";
             PreparedStatement statement = null;
             ResultSet resultSet = null;
@@ -60,7 +60,7 @@ public class DayDaoImpl extends DaoImpl implements DayDao {
                 }
                 return day;
             } catch(SQLException e) {
-                throw new TaskException(e);
+                throw new DaoException(e);
             } finally {
                 try {
                     resultSet.close();
@@ -72,7 +72,7 @@ public class DayDaoImpl extends DaoImpl implements DayDao {
         }
 
     @Override
-    public void update(Day day) throws TaskException {
+    public void update(Day day) throws DaoException {
         Connection con = null;
         String sql = "UPDATE `day` SET `date` = ? WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -83,7 +83,7 @@ public class DayDaoImpl extends DaoImpl implements DayDao {
         statement.setInt(2, day.getId());
         statement.executeUpdate();
         } catch(SQLException e) {
-        throw new TaskException(e);
+        throw new DaoException(e);
         } finally {
         try {
         statement.close();
@@ -92,7 +92,7 @@ public class DayDaoImpl extends DaoImpl implements DayDao {
     }
 
     @Override
-    public void delete(Integer id) throws TaskException {
+    public void delete(Integer id) throws DaoException {
         Connection con = null;
         String sql = "DELETE FROM `day` WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -102,7 +102,7 @@ public class DayDaoImpl extends DaoImpl implements DayDao {
             statement.setInt(1, id);
             statement.executeUpdate();
         } catch(SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 statement.close();
@@ -111,7 +111,7 @@ public class DayDaoImpl extends DaoImpl implements DayDao {
     }
 
     @Override
-    public List<Day> readAllDays() throws TaskException {
+    public List<Day> readAllDays() throws DaoException {
         Connection con = null;
         String sql = "SELECT `id`,`date` FROM `day`";
         PreparedStatement statement = null;
@@ -130,7 +130,7 @@ public class DayDaoImpl extends DaoImpl implements DayDao {
             }
             return days;
         } catch(SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -139,6 +139,5 @@ public class DayDaoImpl extends DaoImpl implements DayDao {
                 statement.close();
             } catch(SQLException | NullPointerException e) {}
         }
-
     }
 }

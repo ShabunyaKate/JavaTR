@@ -5,25 +5,31 @@ import by.epam.fest.dao.SongDao;
 import by.epam.fest.dao.impl.SongDaoImpl;
 import by.epam.fest.domain.Musician;
 import by.epam.fest.domain.Song;
+import by.epam.fest.exception.ServiceException;
+import by.epam.fest.service.MusicianService;
+import by.epam.fest.service.ServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public class DeleteSongCommandImpl implements BaseCommand {
+
     @Override
     public String execute(HttpServletRequest request) {
+        ServiceFactory serviceFactory=ServiceFactory.getInstance();
         String str= request.getParameter("delete_id_song");
         Integer id=Integer.valueOf(str);
-        SongDao songDao=new SongDaoImpl();
+        MusicianService service = serviceFactory.getMusicianService();
         try {
-            Song song=songDao.read(id);
-            songDao.delete(id);
-           HttpSession session= request.getSession(false);
+            service.deleteSong(id);
+            HttpSession session= request.getSession(false);
             Musician musician=(Musician)session.getAttribute("musician");
-            musician.remove(song);
+            musician= service.updateMusicianSongs(musician);
             session.setAttribute("musician",musician);
-        }catch (Exception e){
+        }catch (ServiceException e){
         }
-        return PAGE_SONG_TABLE;
+        finally {
+            return PAGE_SONG_TABLE;
+        }
     }
 }

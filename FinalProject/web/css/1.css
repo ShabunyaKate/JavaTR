@@ -3,7 +3,7 @@
     text-align: center; 
 font-style: italic;
 font-size: 300%;
-color: blue;
+color: #2171cc;
    } 
 
  h2 {  
@@ -33,4 +33,9 @@ P3 {
      font-style: italic;
      font-size: 300%;
      color: mediumspringgreen;
+ }
+ h4{
+     text-align: center;
+     font-style: italic;
+     font-size: 150%;
  }

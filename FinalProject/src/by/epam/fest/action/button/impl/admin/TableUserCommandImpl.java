@@ -5,18 +5,25 @@ import by.epam.fest.dao.UserDao;
 import by.epam.fest.dao.impl.UserDaoImpl;
 import by.epam.fest.domain.Role;
 import by.epam.fest.domain.User;
+import by.epam.fest.exception.ServiceException;
+import by.epam.fest.service.AdminService;
+import by.epam.fest.service.ServiceFactory;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class TableUserCommandImpl implements BaseCommand {
     @Override
     public String execute(HttpServletRequest request) {
+        ServiceFactory serviceFactory=ServiceFactory.getInstance();
+        HttpSession session=request.getSession(false);
             try {
-                UserDao userDao=new UserDaoImpl();
-                List<User> users=userDao.readAllUsers(Role.USER);
-                request.setAttribute("users",users);
+               AdminService service=serviceFactory.getAdminService();
+               List<User> users= service.getAllUsers();
+                session.setAttribute("users",users);
                 return PAGE_TABLE_USER;
-            }catch(Exception e){
+            }catch(ServiceException e){
                 return PAGE_ERROR;
             }
         }

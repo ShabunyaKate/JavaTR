@@ -18,18 +18,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 </head>
 <body>
-
 <nav class="navbar navbar-expand-sm bg-success text-white navbar-dark  justify-content-center fixed-top">
-    <a class="navbar-brand" href="ProjectServlet?link=musician_index">Leto</a>
+    <a class="navbar-brand" href="ProjectServlet?link=musician_index"><h4 class="text-warning">Leto</h4></a>
     <ul class="navbar-nav">
         <li class="nav-item active">
             <a class="nav-link" href="ProjectServlet?link=songs">Удаление и добавление песен</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link disabled"  href="ProjectServlet?link=musician_photo">Изменить фото</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li  class="nav-item"><p>${musician.user.login}</p></li>
         <li class="nav-item active">
-            <a class="nav-link" href="ProjectServlet?link=musician_photo">Изменить фото</a>
+            <form  action="ProjectServlet" method="post">
+                <button  class="btn btn-success btn-block " type="submit">Sign Out</button>
+                <input type="hidden" name="command" value="sign_out">
+            </form>
         </li>
     </ul>
 </nav>
+<hr class="featurette-divider">
 <hr class="featurette-divider">
 <hr class="featurette-divider">
 <div class="form-group">
@@ -43,26 +52,38 @@
 <form class="form" action="ProjectServlet" method="post">
 <h3 class="text-center text-success" >Добавление песни</h3>
 <div class="form-group">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
     <input type="text" name="add_new_song" class="form-control" required>
+        </div>
+        <div class="col"></div>
+    </div>
     <input type="hidden" name="command"  value="add_song">
-    <input type="submit" name="submit" class="btn btn-info btn-md" value="Добавить">
+    <h1 class="text-center"> <input type="submit" name="submit" class="btn btn-info btn-md" value="Добавить"></h1>
 </div>
 </form>
+
 <form class="form" action="ProjectServlet" method="post">
 <h3 class="text-center text-success" >Удаление песни</h3>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
 <select class="custom-select mr-sm-2" name="delete_id_song">
     <c:forEach items="${musician.songs}" var="item">
         <option value="${item.id}">${item.song}</option>
         <hr class="featurette-divider">
     </c:forEach>
 </select>
-<div class="form-group">
+        </div>
+        <div class="col"></div>
+    </div>
     <input type="hidden" name="command"  value="delete_song">
-    <input type="submit" name="submit" class="btn btn-info btn-md" value="Удалить">
-</div>
+  <h1 class="text-center"> <input type="submit" name="submit" class="btn btn-info btn-md text-center" value="Удалить"></h1>
 </form>
+
 <!-- Footer -->
-<footer class="page-footer font-small bg-dark text-white cyan darken-3 fixed-bottom" >
+<footer class="page-footer font-small bg-dark text-white cyan darken-3" >
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
         <label>Katerina Shabunya</label>
     </div>

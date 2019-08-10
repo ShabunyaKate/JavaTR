@@ -23,12 +23,15 @@
         <li class="nav-item active">
             <a class="nav-link" href="ProjectServlet?link=user_ticket">Moи билеты</a>
         </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="ProjectServlet?link=edit_user">Редактирование данных</a>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <img src=${user.avatar} class="rounded" alt="Cinque Terre" width="50">
         </li>
+        <li  class="nav-item"><p>${user.login}</p></li>
         <li class="nav-item active">
             <form  action="ProjectServlet" method="post">
-                <button  class="btn btn-primary btn-block " type="submit">Sign Out</button>
+                <button  class="btn btn-info btn-block " type="submit">Sign Out</button>
                 <input type="hidden" name="command" value="sign_out">
             </form>
         </li>

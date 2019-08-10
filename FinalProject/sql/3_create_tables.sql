@@ -25,7 +25,7 @@ CREATE TABLE `user` (
 	 * 2 - (Role.USER)
 	 */
 	`role` TINYINT NOT NULL CHECK (`role` IN (0, 1, 2)),
-  `avatar_id` INTEGER NOT NULL,
+  `avatar_id` INTEGER,
     FOREIGN KEY (`info_id`) REFERENCES `user_info` (`id`)
         ON UPDATE CASCADE
 		    ON DELETE CASCADE,
@@ -53,8 +53,8 @@ CREATE TABLE `musician` (
 
 CREATE TABLE `song` (
 	`id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `musician_id` INTEGER NOT NULL,
-	`name` VARCHAR(100) NOT NULL,
+  `musician_id` INTEGER NOT NULL,
+	`name` VARCHAR(100) NOT NULL UNIQUE ,
 	FOREIGN KEY (`musician_id`) REFERENCES `musician` (`id`)
 	ON UPDATE CASCADE
 		ON DELETE CASCADE

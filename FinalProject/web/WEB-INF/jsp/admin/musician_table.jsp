@@ -18,7 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-danger text-white navbar-dark  justify-content-center fixed-top">
+<nav class="navbar navbar-expand-sm bg-info text-white navbar-dark  justify-content-center fixed-top">
     <a class="navbar-brand" href="ProjectServlet?link=admin_index">Leto</a>
     <ul class="navbar-nav">
         <li class="nav-item active">
@@ -31,7 +31,17 @@
             <a class="nav-link" href="ProjectServlet?link=admin_fest">Управление фестивалем(дни, цены)</a>
         </li>
     </ul>
+    <ul class="navbar-nav ml-auto">
+        <li  class="nav-item"><p>${user.login}</p></li>
+        <li class="nav-item active">
+            <form  action="ProjectServlet" method="post">
+                <button  class="btn btn-info btn-block " type="submit">Sign Out</button>
+                <input type="hidden" name="command" value="sign_out">
+            </form>
+        </li>
+    </ul>
 </nav>
+<hr class="featurette-divider">
 <hr class="featurette-divider">
 <hr class="featurette-divider">
 <h3 class="text-center text-warning" >Таблица музыкантов</h3>
@@ -81,7 +91,7 @@
         </tbody>
     </table>
 </div>
-<footer class="page-footer font-small bg-dark text-white cyan darken-3 fixed-bottom" >
+<footer class="page-footer font-small bg-dark text-white cyan darken-3" >
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
         <label>Katerina Shabunya</label>
     </div>

@@ -8,7 +8,6 @@ import by.epam.fest.action.button.impl.TableFestivalCommandImpl;
 import by.epam.fest.action.button.impl.user.BookTicketCommandImpl;
 import by.epam.fest.action.button.impl.user.DeleteUsageCommandImpl;
 import by.epam.fest.action.button.impl.user.RegistrationCommandImpl;
-import by.epam.fest.action.button.pages.RegistrationPageCommandImpl;
 
 public class CommandChooser {
 
@@ -53,14 +52,15 @@ public class CommandChooser {
             case "add_musician":
                 command=new AddMusicianCommandImpl();
                 break;
+            case "add_day":
+                command=new AddDayCommandImpl();
+                break;
+                //user
             case "delete_usage":
                 command=new DeleteUsageCommandImpl();
                 break;
             case "book_ticket":
                 command=new BookTicketCommandImpl();
-                break;
-            case "registration_page":
-                command=new RegistrationPageCommandImpl();
                 break;
         }
         return command;

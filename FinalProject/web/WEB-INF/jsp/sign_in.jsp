@@ -16,19 +16,25 @@
     <link href="css/1.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-primary text-white navbar-dark  justify-content-center fixed-top">
-    <a class="navbar-brand" href="index.jsp">Leto</a>
+<nav class="navbar navbar-expand-sm bg-primary text-white navbar-dark fixed-top">
+    <a class="navbar-brand" href="index.jsp"><h4>Leto</h4></a>
     <ul class="navbar-nav">
         <li class="nav-item active">
             <a class="nav-link" href="ProjectServlet?link=table_fest">Участники</a>
         </li>
+    </ul>
+    <ul class="nav navbar-nav">
+    </ul>
+    <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
             <a class="nav-link" href="ProjectServlet?link=sign_in">Войти</a>
         </li>
     </ul>
 </nav>
+<hr class="featurette-divider">
+<hr class="featurette-divider">
+<hr class="featurette-divider">
 <div>
-    <h3 class="text-center text-white pt-5">Sign in</h3>
     <div class="container">
         <div  class="row justify-content-center align-items-center">
             <div  class="col-md-6">
@@ -58,7 +64,6 @@
     </div>
 </div>
 <!-- Footer -->
-
 <footer class="page-footer font-small bg-dark text-white cyan darken-3 fixed-bottom" >
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
         <label>Katerina Shabunya</label>

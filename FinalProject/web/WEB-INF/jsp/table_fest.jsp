@@ -19,36 +19,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-primary text-white navbar-dark  justify-content-center fixed-top">
-    <a class="navbar-brand" href="index.jsp">Leto</a>
+<nav class="navbar navbar-expand-sm bg-primary text-white navbar-dark fixed-top">
+    <a class="navbar-brand" href="index.jsp"><h4>Leto</h4></a>
     <ul class="navbar-nav">
         <li class="nav-item active">
             <a class="nav-link" href="ProjectServlet?link=table_fest">Участники</a>
         </li>
+    </ul>
+    <ul class="nav navbar-nav">
+    </ul>
+    <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
             <a class="nav-link" href="ProjectServlet?link=sign_in">Войти</a>
         </li>
-
     </ul>
 </nav>
 <hr class="featurette-divider">
 <hr class="featurette-divider">
-<h2>Дни фестиваля и их участники</h2>
+<hr class="featurette-divider">
+<h2 class="text-info">Дни фестиваля и их участники</h2>
 <div class="container-fluid">
     <c:forEach items="${map}" var="entry">
         <h1> ${entry.key.date}</h1>
         <div class="row">
         <c:forEach items="${entry.value}" var="item">
+            <hr class="featurette-divider">
             <div class="col-sm-4">
                 <img src="img/avatar/bird.jpg" alt="Vogue" style="width:50%;">
             </div>
             <div class="col-sm-8">
                 <div id="accordion">
                     <div class="card">
-                        <div class="card-header" id="headingOne">
+                        <div class="card-header bg-info" id="headingOne">
                             <h5 class="mb-0">
                                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <p3>${item.user.login}</p3>
+                                    <p3 class="text-white">${item.user.login}</p3>
                                 </button>
                             </h5>
                         </div>
@@ -63,12 +68,13 @@
                     </div>
                   </div>
             </div>
+            <hr class="featurette-divider">
         </c:forEach><br>
         </div>
         <hr class="featurette-divider">
     </c:forEach>
 </div>
-<footer class="page-footer font-small bg-dark text-white cyan darken-3 fixed-bottom" >
+<footer class="page-footer font-small bg-dark text-white cyan darken-3" >
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
         <label>Katerina Shabunya</label>
     </div>

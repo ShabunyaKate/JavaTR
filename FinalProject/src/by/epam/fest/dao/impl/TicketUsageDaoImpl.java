@@ -5,7 +5,7 @@ import by.epam.fest.dao.TicketUsageDao;
 import by.epam.fest.domain.Ticket;
 import by.epam.fest.domain.TicketUsage;
 import by.epam.fest.domain.User;
-import by.epam.fest.exception.TaskException;
+import by.epam.fest.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,7 +17,7 @@ public class TicketUsageDaoImpl extends DaoImpl implements TicketUsageDao {
     private static Logger logger = LogManager.getLogger(TicketUsageDaoImpl.class);
 
     @Override
-    public Integer create(TicketUsage ticketUsage) throws TaskException {
+    public Integer create(TicketUsage ticketUsage) throws DaoException {
         Connection con = null;
         String sql = "INSERT INTO `ticket_user` (`ticket_id`, `count`, `user_id`) VALUES (?, ?, ?)";
         PreparedStatement statement = null;
@@ -34,10 +34,10 @@ public class TicketUsageDaoImpl extends DaoImpl implements TicketUsageDao {
                 return resultSet.getInt(1);
             } else {
                 logger.error("There is no autoincremented index after trying to add record into table `ticket_user`");
-                throw new TaskException();
+                throw new DaoException();
             }
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -51,7 +51,7 @@ public class TicketUsageDaoImpl extends DaoImpl implements TicketUsageDao {
     }
 
     @Override
-    public TicketUsage read(Integer id) throws TaskException {
+    public TicketUsage read(Integer id) throws DaoException {
         Connection con = null;
         String sql = "SELECT `ticket_id`, `count`, `user_id` FROM `ticket_user` WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -75,7 +75,7 @@ public class TicketUsageDaoImpl extends DaoImpl implements TicketUsageDao {
             }
             return ticketUsage;
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -89,7 +89,7 @@ public class TicketUsageDaoImpl extends DaoImpl implements TicketUsageDao {
     }
 
     @Override
-    public void update(TicketUsage ticketUsage) throws TaskException {
+    public void update(TicketUsage ticketUsage) throws DaoException {
         Connection con = null;
         String sql = "UPDATE `ticket_user` SET `ticket_id` = ?, `count` = ?, `user_id` = ? WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -101,7 +101,7 @@ public class TicketUsageDaoImpl extends DaoImpl implements TicketUsageDao {
             statement.setInt(3, ticketUsage.getUser().getId());
             statement.executeUpdate();
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 statement.close();
@@ -111,7 +111,7 @@ public class TicketUsageDaoImpl extends DaoImpl implements TicketUsageDao {
     }
 
     @Override
-    public void delete(Integer id) throws TaskException {
+    public void delete(Integer id) throws DaoException {
         Connection con = null;
         String sql = "DELETE FROM `ticket_user` WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -121,7 +121,7 @@ public class TicketUsageDaoImpl extends DaoImpl implements TicketUsageDao {
             statement.setInt(1, id);
             statement.executeUpdate();
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 statement.close();
@@ -131,7 +131,7 @@ public class TicketUsageDaoImpl extends DaoImpl implements TicketUsageDao {
     }
 
     @Override
-    public List<TicketUsage> readAllTicketsByUserId(Integer id) throws TaskException {
+    public List<TicketUsage> readAllTicketsByUserId(Integer id) throws DaoException {
         Connection con = null;
         String sql = "SELECT `id`,`ticket_id`, `count`,`user_id` FROM `ticket_user` WHERE `user_id` = ?";
         PreparedStatement statement = null;
@@ -157,7 +157,7 @@ public class TicketUsageDaoImpl extends DaoImpl implements TicketUsageDao {
             }
             return ticketUsages;
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();

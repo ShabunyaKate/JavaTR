@@ -1,6 +1,5 @@
 package by.epam.fest.action.button;
 
-import by.epam.fest.exception.TaskException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,5 +20,6 @@ public interface BaseCommand {
     String PAGE_USER_BUY_TICKET="/WEB-INF/jsp/user/buy_ticket.jsp";
     String PAGE_USER_TICKET="/WEB-INF/jsp/user/user_ticket.jsp";
     String PAGE_USER_EDIT="/WEB-INF/jsp/user/edit_user.jsp";
+
     String execute(HttpServletRequest request);
 }

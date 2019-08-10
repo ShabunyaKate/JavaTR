@@ -3,7 +3,7 @@ package by.epam.fest.action.button.impl.user;
 import by.epam.fest.action.button.BaseCommand;
 import by.epam.fest.dao.impl.TicketDaoImpl;
 import by.epam.fest.domain.Ticket;
-import by.epam.fest.exception.TaskException;
+import by.epam.fest.exception.DaoException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,7 +20,7 @@ public class TicketsCommandImpl implements BaseCommand {
             tickets = ticketDao.readAllTickets();
             session.setAttribute("tickets",tickets);
             return PAGE_USER_BUY_TICKET;
-        } catch (TaskException e) {
+        } catch (DaoException e) {
            return PAGE_ERROR;
         }
     }

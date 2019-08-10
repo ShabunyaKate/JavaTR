@@ -1,8 +1,11 @@
 package by.epam.fest.dao.impl;
 
+import by.epam.fest.dao.AvatarDao;
+import by.epam.fest.dao.DAOFactory;
+import by.epam.fest.dao.UserInfoDao;
 import by.epam.fest.domain.*;
 import by.epam.fest.dao.UserDao;
-import by.epam.fest.exception.TaskException;
+import by.epam.fest.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,13 +16,13 @@ import java.util.List;
 public class UserDaoImpl extends DaoImpl implements UserDao {
 
     private static Logger logger = LogManager.getLogger(UserDaoImpl.class);
-    private static  AvatarDaoImpl avatarDao=new AvatarDaoImpl();
     @Override
-    public Integer create(User user) throws TaskException {
+    public Integer create(User user) throws DaoException {
         Connection con = null;
         String sql = "INSERT INTO `user` (`info_id`,`login`, `password`, `role`,`avatar_id`) VALUES (?, ?, ?,?,?)";
         PreparedStatement statement = null;
         ResultSet resultSet = null;
+        DAOFactory daoObjectFactory=DAOFactory.getInstance();
         try {
             con = getDBConnection();
             statement = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
@@ -31,17 +34,23 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
             statement.setString(3, user.getPassword());
             statement.setInt(4, user.getRole().getId());
             String path=user.getAvatar();
-            statement.setInt(5,avatarDao.read(path));
+            if(user.getAvatar()==null){
+                statement.setNull(5, Types.INTEGER);
+            }
+            else {
+                AvatarDao avatarDao= daoObjectFactory.getAvatarDaoImpl();
+                statement.setInt(5,avatarDao.read(path));
+            }
             statement.executeUpdate();
             resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
                 return resultSet.getInt(1);
             } else {
                 logger.error("There is no autoincremented index after trying to add record into table `user`");
-                throw new TaskException();
+                throw new DaoException();
             }
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -55,11 +64,12 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
     }
 
     @Override
-    public User read(Integer id) throws TaskException {
+    public User read(Integer id) throws DaoException {
         Connection con = null;
         String sql = "SELECT `info_id`,`login`, `password`, `role`,`avatar_id` FROM `user` WHERE `id` = ?";
         PreparedStatement statement = null;
         ResultSet resultSet = null;
+        DAOFactory daoObjectFactory=DAOFactory.getInstance();
         try {
             con = getDBConnection();
             statement = con.prepareStatement(sql);
@@ -76,11 +86,12 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
                 user.setPassword(resultSet.getString("password"));
                 user.setRole(Role.getById(resultSet.getInt("role")));
                 Integer avatar_id=resultSet.getInt("avatar_id");
+                AvatarDao avatarDao= daoObjectFactory.getAvatarDaoImpl();
                 user.setAvatar(avatarDao.read(avatar_id));
             }
             return user;
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -94,10 +105,11 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
     }
 
     @Override
-    public void update(User user) throws TaskException {
+    public void update(User user) throws DaoException {
         Connection con = null;
         String sql = "UPDATE `user` SET `info_id` = ?, `login` = ?, `password` = ?, `role` = ?,`avatar_id`=? WHERE `id` = ?";
         PreparedStatement statement = null;
+        DAOFactory daoObjectFactory=DAOFactory.getInstance();
         try {
             con = getDBConnection();
             statement = con.prepareStatement(sql);
@@ -106,11 +118,12 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
             statement.setString(3, user.getPassword());
             statement.setInt(4, user.getRole().getId());
             String path=user.getAvatar();
+            AvatarDao avatarDao= daoObjectFactory.getAvatarDaoImpl();
             statement.setInt(5,avatarDao.read(path));
             statement.setInt(6, user.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 statement.close();
@@ -120,17 +133,18 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
     }
 
     @Override
-    public void delete(Integer id) throws TaskException {
+    public void delete(Integer id) throws DaoException {
         Connection con = null;
         String sql = "DELETE FROM `user` WHERE `id` = ?";
         PreparedStatement statement = null;
+
         try {
             con = getDBConnection();
             statement = con.prepareStatement(sql);
             statement.setInt(1, id);
             statement.executeUpdate();
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 statement.close();
@@ -139,11 +153,12 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
         }
     }
     @Override
-    public User getUserByLoginAndPassword(String login, String password)  throws TaskException {
+    public User getUserByLoginAndPassword(String login, String password)  throws DaoException {
         Connection con = null;
-        String sql = "Select * From `user` where `login` = ? and `password` = ?";
+        String sql = "SELECT `id`,`info_id`,`role`,`avatar_id` FROM `user` WHERE `login` = ? AND `password` = ?";
         PreparedStatement statement = null;
         ResultSet resultSet = null;
+        DAOFactory daoObjectFactory=DAOFactory.getInstance();
         User user = null;
         try {
             con = getDBConnection();
@@ -154,16 +169,19 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
             if (resultSet.next()) {
                 user = new User();
                 user.setId(resultSet.getInt("id"));
-                Integer id = resultSet.getInt("id");
-                user.setLogin(resultSet.getString("login"));
-                user.setPassword(resultSet.getString("password"));
+                UserInfo userInfo = new UserInfo();
+                userInfo.setId(resultSet.getInt("info_id"));
+                user.setUserInfo(userInfo);
+                user.setLogin(login);
+                user.setPassword(password);
                 user.setRole(Role.getById(resultSet.getInt("role")));
                 Integer avatar_id = resultSet.getInt("avatar_id");
+                AvatarDao avatarDao= daoObjectFactory.getAvatarDaoImpl();
                 user.setAvatar(avatarDao.read(avatar_id));
             }
             return user;
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -175,11 +193,40 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
     }
 
     @Override
-    public List<User> readAllUsers(Role role) throws TaskException {
+    public boolean isUniqueLogin(String login) throws DaoException {
+        Connection con = null;
+        String sql="SELECT `id` FROM `user` WHERE `login` = ?";
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            con = getDBConnection();
+            statement = con.prepareStatement(sql);
+            statement.setString(1, login);
+            resultSet = statement.executeQuery();
+            if(resultSet.next()) {
+                 return false;
+            }else return true;
+
+        } catch(SQLException e) {
+            throw new DaoException(e);
+        } finally {
+            try {
+                resultSet.close();
+            } catch(SQLException | NullPointerException e) {}
+            try {
+                statement.close();
+            } catch(SQLException | NullPointerException e) {}
+        }
+
+    }
+
+    @Override
+    public List<User> readAllUsers(Role role) throws DaoException {
         Connection con = null;
         String sql="SELECT `id`,`info_id`,`login`, `password` FROM `user` WHERE `role` = ?";
         PreparedStatement statement = null;
         ResultSet resultSet = null;
+        DAOFactory daoObjectFactory=DAOFactory.getInstance();
         try {
             con = getDBConnection();
             statement = con.prepareStatement(sql);
@@ -187,7 +234,7 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
             resultSet = statement.executeQuery();
             List<User> users=new ArrayList<>();
             User user = null;
-            UserInfoDaoImpl userInfoDao=new UserInfoDaoImpl();
+            UserInfoDao userInfoDao= daoObjectFactory.getUserInfoDao();
             while(resultSet.next()) {
                 user = new User();
                 user.setId(resultSet.getInt("id"));
@@ -200,7 +247,7 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
             }
             return users;
         } catch(SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -211,5 +258,37 @@ public class UserDaoImpl extends DaoImpl implements UserDao {
         }
 
     }
-}
+
+    @Override
+    public Integer getInfoIdByUserId(Integer id) throws DaoException {
+        Connection con = null;
+        String sql = "SELECT `info_id` FROM `user` WHERE `id` = ?";
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        Integer info_id=null;
+        try {
+            con = getDBConnection();
+            statement = con.prepareStatement(sql);
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+               info_id=resultSet.getInt("info_id");
+
+            }
+            return info_id;
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        } finally {
+            try {
+                resultSet.close();
+            } catch (SQLException | NullPointerException e) {
+            }
+            try {
+                statement.close();
+            } catch (SQLException | NullPointerException e) {
+            }
+        }
+    }
+    }
+
 

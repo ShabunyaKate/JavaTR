@@ -26,9 +26,6 @@
             <a class="nav-link" href="ProjectServlet?link=user_ticket">Moи билеты</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="ProjectServlet?link=edit_user">Редактирование данных</a>
-        </li>
-        <li class="nav-item active">
             <form  action="ProjectServlet" method="post">
                 <button  class="btn btn-primary btn-block " type="submit">Sign Out</button>
                 <input type="hidden" name="command" value="sign_out">

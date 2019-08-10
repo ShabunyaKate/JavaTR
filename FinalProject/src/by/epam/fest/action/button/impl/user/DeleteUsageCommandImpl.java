@@ -2,12 +2,10 @@ package by.epam.fest.action.button.impl.user;
 
 import by.epam.fest.action.button.BaseCommand;
 import by.epam.fest.dao.impl.TicketUsageDaoImpl;
-import by.epam.fest.domain.TicketUsage;
-import by.epam.fest.exception.TaskException;
+import by.epam.fest.exception.DaoException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 public class DeleteUsageCommandImpl implements BaseCommand {
 
@@ -20,7 +18,7 @@ public class DeleteUsageCommandImpl implements BaseCommand {
             usageDao.delete(id);
             TicketTableCommandImpl ticketTableCommand=new TicketTableCommandImpl();
             return ticketTableCommand.execute(request);
-        } catch (TaskException e) {
+        } catch (DaoException e) {
             return PAGE_ERROR;
         }
     }

@@ -5,6 +5,9 @@ import by.epam.fest.dao.impl.DayDaoImpl;
 import by.epam.fest.dao.impl.MusicianDaoImpl;
 import by.epam.fest.domain.Day;
 import by.epam.fest.domain.Musician;
+import by.epam.fest.exception.ServiceException;
+import by.epam.fest.service.AdminService;
+import by.epam.fest.service.ServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
@@ -17,18 +20,13 @@ public class TableFestivalCommandImpl implements BaseCommand {
     @Override
     public String execute(HttpServletRequest request) {
         try {
-            DayDaoImpl dayDao = new DayDaoImpl();
-            List<Day> days = dayDao.readAllDays();
-            MusicianDaoImpl musicianDao=new MusicianDaoImpl();
-            List<Musician> musicians;
-            Map<Day,List<Musician>> linkedHashMap = new LinkedHashMap<>();
-            for (Day day: days) {
-                 musicians=musicianDao.readAllMusicianByDay(day);
-                 linkedHashMap.put(day, musicians);
-            }
+            ServiceFactory serviceFactory=ServiceFactory.getInstance();
+            AdminService service=serviceFactory.getAdminService();
+            List<Day> days=service.getAllDays();
+            Map<Day,List<Musician>> linkedHashMap=service.getDaysMusicians(days);
             request.setAttribute("map",linkedHashMap);
             return PAGE_TABLE_FEST;
-        }catch(Exception e){
+        }catch(ServiceException e){
             return PAGE_ERROR;
         }
     }

@@ -1,14 +1,12 @@
 package by.epam.fest.action.button.impl;
 
 import by.epam.fest.action.button.BaseCommand;
-import by.epam.fest.dao.MusicianDao;
-import by.epam.fest.dao.SongDao;
-import by.epam.fest.dao.impl.MusicianDaoImpl;
-import by.epam.fest.dao.impl.SongDaoImpl;
 import by.epam.fest.domain.Musician;
 import by.epam.fest.domain.User;
-import by.epam.fest.service.LoginService;
-import by.epam.fest.service.impl.LoginServiceImpl;
+import by.epam.fest.exception.ServiceException;
+import by.epam.fest.service.ClientService;
+import by.epam.fest.service.MusicianService;
+import by.epam.fest.service.ServiceFactory;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,16 +15,16 @@ import javax.servlet.http.HttpSession;
 
 public class SignInCommandImpl implements BaseCommand {
 
-    private LoginService service = new LoginServiceImpl();
-
     @Override
     public String execute(HttpServletRequest request) {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         String path = null;
+        ServiceFactory serviceFactory=ServiceFactory.getInstance();
         try {
             HttpSession session = request.getSession(false);
-            User user = service.authorizeUser(login, password);
+            ClientService clientService = serviceFactory.getClientService();
+            User user = clientService.authorizeUser(login, password);
             if (user != null) {
                 switch (user.getRole()) {
                     case ADMINISTRATOR:
@@ -34,10 +32,8 @@ public class SignInCommandImpl implements BaseCommand {
                         path = PAGE_ADMIN_INDEX;
                         break;
                     case MUSICIAN:
-                        MusicianDao musicianDao=new MusicianDaoImpl();
-                        Musician musician = musicianDao.read(user);
-                        SongDao songDao = new SongDaoImpl();
-                        musician.setSongs(songDao.readAllSongsByMusician(musician.getId()));
+                        MusicianService musicianService=serviceFactory.getMusicianService();
+                        Musician musician= musicianService.getMusician(user);
                         session.setAttribute("musician",musician);
                         path = PAGE_MUSICIAN_INDEX;
                         break;
@@ -48,12 +44,16 @@ public class SignInCommandImpl implements BaseCommand {
                 }
             } else {
                 String s="Oшибка входа, введите данные повторно";
-                session.setAttribute("exception",s);
+                request.setAttribute("exception",s);
                 path = PAGE_SIGN_IN;
             }
+        } catch (ServiceException e) {
+            String s="Oшибка входа, введите данные повторно";
+            request.setAttribute("exception",s);
+            path = PAGE_SIGN_IN;
+        }
+        finally {
             return path;
-        } catch (Exception e) {
-            return PAGE_ERROR;
         }
     }
 }

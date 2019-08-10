@@ -1,13 +1,11 @@
 package by.epam.fest.dao.impl;
 
 import by.epam.fest.dao.DayDao;
-import by.epam.fest.dao.SongDao;
 import by.epam.fest.domain.Musician;
 import by.epam.fest.dao.MusicianDao;
 import by.epam.fest.domain.Day;
-import by.epam.fest.domain.Song;
 import by.epam.fest.domain.User;
-import by.epam.fest.exception.TaskException;
+import by.epam.fest.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,7 +17,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
     private static Logger logger = LogManager.getLogger(MusicianDaoImpl.class);
     private SongDaoImpl songDao=new SongDaoImpl();
     @Override
-    public Integer create(Musician musician) throws TaskException {
+    public Integer create(Musician musician) throws DaoException {
         Connection con = null;
         String sql = "INSERT INTO `musician` (`user_id`, `day_id`) VALUES (?, ?)";
         PreparedStatement statement = null;
@@ -35,10 +33,10 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
                 return resultSet.getInt(1);
             } else {
                 logger.error("There is no autoincremented index after trying to add record into table `fest`");
-                throw new TaskException();
+                throw new DaoException();
             }
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -52,7 +50,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
     }
 
     @Override
-    public Musician read(Integer id) throws TaskException {
+    public Musician read(Integer id) throws DaoException {
         Connection con = null;
         String sql = "SELECT `user_id`, `day_id` FROM `musician` WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -76,7 +74,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
             }
             return musician;
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -90,7 +88,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
     }
 
     @Override
-    public void update(Musician musician) throws TaskException {
+    public void update(Musician musician) throws DaoException {
         Connection con = null;
         String sql = "UPDATE `musician` SET `user_id` = ?, `day_id` = ? WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -101,7 +99,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
             statement.setInt(2, musician.getDay().getId());
             statement.executeUpdate();
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 statement.close();
@@ -111,7 +109,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
     }
 
     @Override
-    public void delete(Integer id) throws TaskException {
+    public void delete(Integer id) throws DaoException {
         Connection con = null;
         String sql = "DELETE FROM `musician` WHERE `id` = ?";
         PreparedStatement statement = null;
@@ -121,7 +119,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
             statement.setInt(1, id);
             statement.executeUpdate();
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 statement.close();
@@ -131,7 +129,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
     }
 
     @Override
-    public List<Musician> readAllMusicianByDay(Day day) throws TaskException {
+    public List<Musician> readAllMusicianByDay(Day day) throws DaoException {
         Connection con = null;
         String sql = "SELECT `id`, `user_id`  FROM `musician` WHERE `day_id` = ?";
         PreparedStatement statement = null;
@@ -158,7 +156,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
             }
             return musicians;
             } catch(SQLException e) {
-                throw new TaskException(e);
+                throw new DaoException(e);
             } finally {
                 try {
                     resultSet.close();
@@ -171,7 +169,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
     }
 
     @Override
-    public Musician read(User user) throws TaskException {
+    public Musician read(User user) throws DaoException {
         Connection con = null;
         String sql = "SELECT `id`, `day_id` FROM `musician` WHERE `user_id` = ?";
         PreparedStatement statement = null;
@@ -192,7 +190,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
             }
             return musician;
         } catch (SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -206,7 +204,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
     }
 
     @Override
-    public List<Musician> readAllMusician() throws TaskException {
+    public List<Musician> readAllMusician() throws DaoException {
         Connection con = null;
         String sql = "SELECT `id`, `user_id`,`day_id`  FROM `musician` ";
         PreparedStatement statement = null;
@@ -233,7 +231,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
             }
             return musicians;
         } catch(SQLException e) {
-            throw new TaskException(e);
+            throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
@@ -243,6 +241,37 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
             } catch(SQLException | NullPointerException e) {}
         }
 
+    }
+
+    @Override
+    public Integer getUserIdByMusicianId(Integer id) throws DaoException {
+        Connection con = null;
+        String sql = "SELECT `user_id` FROM `musician` WHERE `id` = ?";
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        Integer user_id=null;
+        try {
+            con = getDBConnection();
+            statement = con.prepareStatement(sql);
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                user_id=resultSet.getInt("user_id");
+
+            }
+            return user_id;
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        } finally {
+            try {
+                resultSet.close();
+            } catch (SQLException | NullPointerException e) {
+            }
+            try {
+                statement.close();
+            } catch (SQLException | NullPointerException e) {
+            }
+        }
     }
 }
 

@@ -1,6 +1,7 @@
 package by.epam.fest.action.link;
 
 import by.epam.fest.action.button.impl.TableFestivalCommandImpl;
+import by.epam.fest.action.button.impl.admin.FestPageCommandImpl;
 import by.epam.fest.action.button.impl.admin.TableMusicianCommandImpl;
 import by.epam.fest.action.button.impl.admin.TableUserCommandImpl;
 import by.epam.fest.action.button.impl.user.BookTicketCommandImpl;
@@ -65,7 +66,8 @@ public class Link {
                 link = command3.execute(request);
                 break;
             case "admin_fest":
-                link = PAGE_ADMIN_FEST;
+                FestPageCommandImpl pageCommand=new FestPageCommandImpl();
+                link = pageCommand.execute(request);
                 break;
             //user
             case "user_index":

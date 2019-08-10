@@ -11,8 +11,7 @@ public class SignOutCommandImpl implements BaseCommand {
     public String execute(HttpServletRequest request) {
         HttpSession session=request.getSession(false);
         session.removeAttribute("user");
-        session.removeAttribute("fest");
-        session.removeAttribute("admin");
+        session.removeAttribute("musician");
         return PAGE_DEFAULT;
     }
 }
