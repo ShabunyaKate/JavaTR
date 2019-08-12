@@ -14,6 +14,6 @@ public interface MusicianDao extends Dao<Musician>{
     Musician read(User user) throws DaoException;
     List<Musician> readAllMusician() throws DaoException;
     Integer getUserIdByMusicianId(Integer id) throws DaoException;
-     void addBlobToMusician(BufferedImage image,Integer musician_id) throws DaoException;
+     void addBlobToMusician( byte[] bytes,Integer musician_id) throws DaoException;
      List<Musician> readAllMusicianByDayWithImg(Day day) throws DaoException;
 }

@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -21,7 +22,8 @@ import java.util.List;
 
 public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
     private static Logger logger = LogManager.getLogger(MusicianDaoImpl.class);
-    private SongDaoImpl songDao=new SongDaoImpl();
+    private SongDaoImpl songDao = new SongDaoImpl();
+
     @Override
     public Integer create(Musician musician) throws DaoException {
         Connection con = null;
@@ -70,10 +72,10 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
             if (resultSet.next()) {
                 musician = new Musician();
                 musician.setId(id);
-                User user=new User();
+                User user = new User();
                 user.setId(resultSet.getInt("user_id"));
                 musician.setUser(user);
-                Day day=new Day();
+                Day day = new Day();
                 day.setId(resultSet.getInt("day_id"));
                 musician.setDay(day);
 
@@ -146,31 +148,33 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
             statement = con.prepareStatement(sql);
             statement.setInt(1, day.getId());
             resultSet = statement.executeQuery();
-            List<Musician> musicians=new ArrayList<>();
+            List<Musician> musicians = new ArrayList<>();
             Musician musician = null;
-            UserDaoImpl userDao=new UserDaoImpl();
-            while(resultSet.next()) {
+            UserDaoImpl userDao = new UserDaoImpl();
+            while (resultSet.next()) {
                 musician = new Musician();
-                id=resultSet.getInt("id");
+                id = resultSet.getInt("id");
                 musician.setId(id);
-                int user_id=resultSet.getInt("user_id");
-                User user=userDao.read(user_id);
+                int user_id = resultSet.getInt("user_id");
+                User user = userDao.read(user_id);
                 musician.setUser(user);
                 musician.setDay(day);
                 musician.setSongs(songDao.readAllSongsByMusician(id));
                 musicians.add(musician);
             }
             return musicians;
-            } catch(SQLException e) {
-                throw new DaoException(e);
-            } finally {
-                try {
-                    resultSet.close();
-                } catch(SQLException | NullPointerException e) {}
-                try {
-                    statement.close();
-                } catch(SQLException | NullPointerException e) {}
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        } finally {
+            try {
+                resultSet.close();
+            } catch (SQLException | NullPointerException e) {
             }
+            try {
+                statement.close();
+            } catch (SQLException | NullPointerException e) {
+            }
+        }
 
     }
 
@@ -190,7 +194,7 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
                 musician = new Musician();
                 musician.setId(resultSet.getInt("id"));
                 musician.setUser(user);
-                Day day=new Day();
+                Day day = new Day();
                 day.setId(resultSet.getInt("day_id"));
                 musician.setDay(day);
             }
@@ -219,32 +223,34 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
             con = getDBConnection();
             statement = con.prepareStatement(sql);
             resultSet = statement.executeQuery();
-            List<Musician> musicians=new ArrayList<>();
+            List<Musician> musicians = new ArrayList<>();
             Musician musician = null;
-            UserDaoImpl userDao=new UserDaoImpl();
-            DayDao dayDao=new DayDaoImpl();
-            while(resultSet.next()) {
+            UserDaoImpl userDao = new UserDaoImpl();
+            DayDao dayDao = new DayDaoImpl();
+            while (resultSet.next()) {
                 musician = new Musician();
-                int  id=resultSet.getInt("id");
+                int id = resultSet.getInt("id");
                 musician.setId(id);
-                int user_id=resultSet.getInt("user_id");
-                User user=userDao.read(user_id);
+                int user_id = resultSet.getInt("user_id");
+                User user = userDao.read(user_id);
                 musician.setUser(user);
-                int day_id=resultSet.getInt("day_id");
-                Day day =dayDao.read(day_id);
+                int day_id = resultSet.getInt("day_id");
+                Day day = dayDao.read(day_id);
                 musician.setDay(day);
                 musicians.add(musician);
             }
             return musicians;
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
-            } catch(SQLException | NullPointerException e) {}
+            } catch (SQLException | NullPointerException e) {
+            }
             try {
                 statement.close();
-            } catch(SQLException | NullPointerException e) {}
+            } catch (SQLException | NullPointerException e) {
+            }
         }
 
     }
@@ -255,14 +261,14 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
         String sql = "SELECT `user_id` FROM `musician` WHERE `id` = ?";
         PreparedStatement statement = null;
         ResultSet resultSet = null;
-        Integer user_id=null;
+        Integer user_id = null;
         try {
             con = getDBConnection();
             statement = con.prepareStatement(sql);
             statement.setInt(1, id);
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                user_id=resultSet.getInt("user_id");
+                user_id = resultSet.getInt("user_id");
 
             }
             return user_id;
@@ -281,21 +287,20 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
     }
 
     @Override
-    public void addBlobToMusician(BufferedImage image, Integer musician_id) throws DaoException {
+    public void addBlobToMusician( byte[] bytes, Integer musician_id) throws DaoException {
         Connection con = null;
         String sql = "UPDATE `musician` SET `img` = ? WHERE `id` = ?";
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
             con = getDBConnection();
-            Blob blob=con.createBlob();
-            OutputStream outputStream=blob.setBinaryStream(1);
-            ImageIO.write(image,"jpg",outputStream);
+//            OutputStream outputStream = blob.setBinaryStream(1);
+//            ImageIO.write(image, "jpg", outputStream);
             statement = con.prepareStatement(sql);
-            statement.setBlob(1,blob );
+            statement.setBytes(1, bytes);
             statement.setInt(2, musician_id);
             statement.executeUpdate();
-        } catch (SQLException|IOException e) {
+        } catch (SQLException e) {
             throw new DaoException(e);
         } finally {
             try {
@@ -317,37 +322,40 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
             statement = con.prepareStatement(sql);
             statement.setInt(1, day.getId());
             resultSet = statement.executeQuery();
-            List<Musician> musicians=new ArrayList<>();
+            List<Musician> musicians = new ArrayList<>();
             Musician musician = null;
-            UserDaoImpl userDao=new UserDaoImpl();
-            while(resultSet.next()) {
+            UserDaoImpl userDao = new UserDaoImpl();
+            while (resultSet.next()) {
                 musician = new Musician();
-                id=resultSet.getInt("id");
+                id = resultSet.getInt("id");
                 musician.setId(id);
-                int user_id=resultSet.getInt("user_id");
-                User user=userDao.read(user_id);
+                int user_id = resultSet.getInt("user_id");
+                User user = userDao.read(user_id);
                 musician.setUser(user);
                 musician.setDay(day);
                 musician.setSongs(songDao.readAllSongsByMusician(id));
                 byte[] blob = resultSet.getBytes("img");
-                if(blob!=null){
-             //   int blobLength = (int) blob.length();
-             //   byte[] blobAsBytes = blob.getBytes(1, blobLength);
-                String encode = Base64.getEncoder().encodeToString(blob);//blobAsBytes
-                musician.setImg(encode);
+                if (blob != null) {
+              //      int blobLength = (int) blob.length();
+                  //  byte[] blobAsBytes = blob.getBytes(1, blobLength);
+                    String encode = Base64.getEncoder().encodeToString(blob);//blobAsBytes
+                    musician.setImg(encode);
+                   // blob.free();
                 }
                 musicians.add(musician);
             }
             return musicians;
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             throw new DaoException(e);
         } finally {
             try {
                 resultSet.close();
-            } catch(SQLException | NullPointerException e) {}
+            } catch (SQLException | NullPointerException e) {
+            }
             try {
                 statement.close();
-            } catch(SQLException | NullPointerException e) {}
+            } catch (SQLException | NullPointerException e) {
+            }
         }
     }
 

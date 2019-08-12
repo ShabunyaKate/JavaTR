@@ -15,6 +15,6 @@ public interface MusicianService {
     void deleteSong(Integer id) throws ServiceException;
     Musician getMusician(User user)throws ServiceException;
     Musician updateMusicianSongs(Musician musician) throws ServiceException;
-    void downloadImageIntoDB(InputStream stream, Integer musician_id) throws ServiceException;
+    void downloadImageIntoDB(InputStream inputStream, Integer musician_id) throws ServiceException;
     Map<Day, List<Musician>> getDaysMusiciansWithImg(List<Day> days) throws  ServiceException;
 }

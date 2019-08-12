@@ -31,7 +31,7 @@ public class DownloadServlet extends HttpServlet {
             }
         }catch(ServiceException e){
         }
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsp/musician/photo.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsp/musician/songs.jsp");
         requestDispatcher.forward(request, response);
     }
 }

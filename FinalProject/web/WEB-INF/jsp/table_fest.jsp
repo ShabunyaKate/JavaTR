@@ -52,7 +52,7 @@
                 <img src="img/avatar/bird.jpg" alt="Vogue" style="width:50%;">
                 </c:if>
                 <c:if test="${item.img!=null}">
-                <img src="data:image/jpg;base64,${item.img}"/>
+                <img src="data:image/jpeg;base64, ${item.img}"/>
                 </c:if>
             </div>
             <div class="col-sm-8">

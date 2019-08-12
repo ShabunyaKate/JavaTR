@@ -12,9 +12,11 @@ import by.epam.fest.domain.User;
 import by.epam.fest.exception.DaoException;
 import by.epam.fest.exception.ServiceException;
 import by.epam.fest.service.MusicianService;
+import org.apache.logging.log4j.core.util.IOUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedHashMap;
@@ -71,9 +73,11 @@ public class MusicianServiceImpl implements MusicianService {
     @Override
     public void downloadImageIntoDB(InputStream inputStream, Integer musician_id) throws ServiceException {
             try {
-                BufferedImage image = ImageIO.read(inputStream);
+             //   BufferedImage image = ImageIO.read(inputStream);
+              //  Byte.inputStream
+                byte[] bytes = MusicianServiceImpl.getBytesFromInputStream(inputStream);
                 MusicianDao dao=daoObjectFactory.getMusicianDao();
-                dao.addBlobToMusician(image,musician_id);
+                dao.addBlobToMusician(bytes,musician_id);
             } catch (DaoException | IOException e) {
                 throw new ServiceException();
             }
@@ -94,5 +98,12 @@ public class MusicianServiceImpl implements MusicianService {
            throw new ServiceException(e);
        }
     }
-
+    public static byte[] getBytesFromInputStream(InputStream is) throws IOException {
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        byte[] buffer = new byte[0xFFFF];
+        for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+            os.write(buffer, 0, len);
+        }
+        return os.toByteArray();
+    }
 }
