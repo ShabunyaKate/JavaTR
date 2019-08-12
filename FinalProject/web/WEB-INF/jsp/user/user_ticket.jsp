@@ -36,20 +36,6 @@
 <hr class="featurette-divider">
 <hr class="featurette-divider">
 <hr class="featurette-divider">
-<%--<div class="row">--%>
-    <%--<c:set var="total" value="${0}"/>--%>
-    <%--<c:forEach items="${usages}" var="item">--%>
-    <%--<div class="col-sm-8">--%>
-        <%--<h6>${item.ticket.day.date}</h6>--%>
-        <%--<h6>${item.ticket.type}</h6>--%>
-        <%--<hr class="featurette-divider">--%>
-    <%--</div>--%>
-    <%--<div class="col-sm-4"><h6 class="text-center ">* ${item.count}</h6>--%>
-      <%--<h6 class="text-center ">${item.ticket.price * item.count}</h6></div>--%>
-        <%--<c:set var="total" value="${total + item.ticket.price * item.count}" />--%>
-    <%--</c:forEach>--%>
-<%--</div>--%>
-<%--<h6>${total}</h6>--%>
 <section class="container">
     <h1>Билеты</h1>
     <div class="row">

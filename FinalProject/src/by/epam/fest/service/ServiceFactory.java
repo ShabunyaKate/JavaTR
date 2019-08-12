@@ -2,6 +2,7 @@ package by.epam.fest.service;
 
 import by.epam.fest.service.impl.AdminServiceImpl;
 import by.epam.fest.service.impl.ClientServiceImpl;
+
 import by.epam.fest.service.impl.MusicianServiceImpl;
 
 public final class ServiceFactory {
@@ -20,8 +21,7 @@ public final class ServiceFactory {
     private final MusicianService musicianService = new MusicianServiceImpl();
     private final AdminService adminService = new AdminServiceImpl();
 
-     public ClientService getClientService() {return clientService;}
-
+    public ClientService getClientService() {return clientService;}
     public MusicianService getMusicianService() {
         return musicianService;
     }

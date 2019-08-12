@@ -1,4 +1,6 @@
 package by.epam.fest.domain;
+import by.epam.fest.service.ServiceFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,7 +8,11 @@ public class Musician extends Entity {
     private User user;
     private Day day;
     private List<Song> songs = new ArrayList<>();
+    private String img;
 
+
+
+    public void setImg(String img) { this.img = img; }
     public void setUser(User user) { this.user = user; }
     public void setDay(Day day){
         this.day=day;
@@ -22,7 +28,7 @@ public class Musician extends Entity {
     public Day getDay(){
         return day;
     }
-
+    public String getImg() { return img; }
     public void add(Song song) {
         songs.add(song);
     }

@@ -1,16 +1,21 @@
 package by.epam.fest.action.button.impl;
 
 import by.epam.fest.action.button.BaseCommand;
+import by.epam.fest.domain.Lang;
+import by.epam.fest.domain.LangHolder;
 import by.epam.fest.domain.Musician;
 import by.epam.fest.domain.User;
 import by.epam.fest.exception.ServiceException;
 import by.epam.fest.service.ClientService;
 import by.epam.fest.service.MusicianService;
 import by.epam.fest.service.ServiceFactory;
+import sun.util.locale.LocaleUtils;
 
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 
 public class SignInCommandImpl implements BaseCommand {
@@ -28,7 +33,7 @@ public class SignInCommandImpl implements BaseCommand {
             if (user != null) {
                 switch (user.getRole()) {
                     case ADMINISTRATOR:
-                        session.setAttribute("user", user);
+                        session.setAttribute("admin", user);
                         path = PAGE_ADMIN_INDEX;
                         break;
                     case MUSICIAN:
@@ -43,9 +48,12 @@ public class SignInCommandImpl implements BaseCommand {
                         break;
                 }
             } else {
-                String s="Oшибка входа, введите данные повторно";
-                request.setAttribute("exception",s);
-                path = PAGE_SIGN_IN;
+                 String str = (String)session.getAttribute("lang");
+                 LangHolder langHolder=LangHolder.getInstance();
+                 ResourceBundle bundle=ResourceBundle.getBundle("language", langHolder.getLocale());
+                 String s=bundle.getString("exception.signin");
+                 request.setAttribute("exception",s);
+                 path = PAGE_SIGN_IN;
             }
         } catch (ServiceException e) {
             String s="Oшибка входа, введите данные повторно";

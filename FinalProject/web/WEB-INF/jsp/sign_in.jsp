@@ -7,6 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%--<c:if test="${lang ==null}"><fmt:setLocale value="en_US" scope="session"/></c:if>--%>
+<c:if test="${lang !=null}"><fmt:setLocale value="${lang}" scope="session"/></c:if>
+<fmt:setBundle basename="language"/>
 <html>
 <head>
     <title>Leto Fest</title>

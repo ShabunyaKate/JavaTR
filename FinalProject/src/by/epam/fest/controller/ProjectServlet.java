@@ -26,7 +26,8 @@ public class ProjectServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String userCommand = request.getParameter("command");
-        BaseCommand command = CommandChooser.defineCommand(userCommand);
+        CommandChooser commandChooser=CommandChooser.getInstance();
+        BaseCommand command = commandChooser.defineCommand(userCommand);
 
         String path = command.execute(request);
 

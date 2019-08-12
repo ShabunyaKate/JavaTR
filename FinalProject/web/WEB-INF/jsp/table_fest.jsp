@@ -7,7 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:if test="${lang ==null}"><fmt:setLocale value="ru_RU" scope="session"/></c:if>
+<c:if test="${lang !=null}"><fmt:setLocale value="${lang}" scope="session"/></c:if>
+<fmt:setBundle basename="language"/>
 <html>
 <head>
     <title>Leto Fest</title>
@@ -23,29 +26,34 @@
     <a class="navbar-brand" href="index.jsp"><h4>Leto</h4></a>
     <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="ProjectServlet?link=table_fest">Участники</a>
+            <a class="nav-link" href="ProjectServlet?link=table_fest"><fmt:message key="nav.client.fest"/></a>
         </li>
     </ul>
     <ul class="nav navbar-nav">
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="ProjectServlet?link=sign_in">Войти</a>
+            <a class="nav-link" href="ProjectServlet?link=sign_in"><fmt:message key="nav.client.signin"/></a>
         </li>
     </ul>
 </nav>
 <hr class="featurette-divider">
 <hr class="featurette-divider">
 <hr class="featurette-divider">
-<h2 class="text-info">Дни фестиваля и их участники</h2>
+<h2 class="text-info"><fmt:message key="fest.label"/></h2>
 <div class="container-fluid">
     <c:forEach items="${map}" var="entry">
-        <h1> ${entry.key.date}</h1>
+        <h1><fmt:formatDate value="${entry.key.date}"  /></h1>
         <div class="row">
         <c:forEach items="${entry.value}" var="item">
             <hr class="featurette-divider">
             <div class="col-sm-4">
+                <c:if test="${item.img==null}">
                 <img src="img/avatar/bird.jpg" alt="Vogue" style="width:50%;">
+                </c:if>
+                <c:if test="${item.img!=null}">
+                <img src="data:image/jpg;base64,${item.img}"/>
+                </c:if>
             </div>
             <div class="col-sm-8">
                 <div id="accordion">

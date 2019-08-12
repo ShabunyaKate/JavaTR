@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class EncodingFilter implements Filter {
 
-   
+
     public EncodingFilter() {
         // TODO Auto-generated constructor stub
     }
@@ -15,14 +15,14 @@ public class EncodingFilter implements Filter {
 		// TODO Auto-generated method stub
 	}
 
-	
+
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		 response.setCharacterEncoding("UTF-8");
 	     request.setCharacterEncoding("UTF-8");
 	     chain.doFilter(request, response);
 	}
 
-	
+
 	public void init(FilterConfig fConfig) throws ServletException {
 	}
 

@@ -19,7 +19,6 @@ public interface BaseCommand {
     String PAGE_ADMIN_FEST="/WEB-INF/jsp/admin/fest_days_price.jsp";
     String PAGE_USER_BUY_TICKET="/WEB-INF/jsp/user/buy_ticket.jsp";
     String PAGE_USER_TICKET="/WEB-INF/jsp/user/user_ticket.jsp";
-    String PAGE_USER_EDIT="/WEB-INF/jsp/user/edit_user.jsp";
 
     String execute(HttpServletRequest request);
 }

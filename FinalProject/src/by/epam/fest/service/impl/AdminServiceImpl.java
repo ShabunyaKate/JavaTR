@@ -2,14 +2,12 @@ package by.epam.fest.service.impl;
 
 import by.epam.fest.dao.*;
 
-import by.epam.fest.dao.impl.DayDaoImpl;
-import by.epam.fest.dao.impl.MusicianDaoImpl;
+
 import by.epam.fest.domain.*;
 import by.epam.fest.exception.DaoException;
 import by.epam.fest.exception.ServiceException;
 import by.epam.fest.service.AdminService;
 
-import javax.jws.soap.SOAPBinding;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.LinkedHashMap;
@@ -110,9 +108,9 @@ public class AdminServiceImpl implements AdminService {
     public void deleteMusician(String str) throws ServiceException {
         try {
             Integer id = Integer.valueOf(str);
-            MusicianDao musicianDao=factory.getMusicianDao();
-            UserDao userDao=factory.getUserDao();
-            Integer user_id= musicianDao.getUserIdByMusicianId(id);
+            MusicianDao musicianDao = factory.getMusicianDao();
+            UserDao userDao = factory.getUserDao();
+            Integer user_id = musicianDao.getUserIdByMusicianId(id);
             musicianDao.delete(id);
             userDao.delete(user_id);
         } catch (DaoException e) {
@@ -121,15 +119,15 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void addDayWithPrice(Date date, BigDecimal vip,BigDecimal fan,BigDecimal dance) throws ServiceException {
+    public void addDayWithPrice(Date date, BigDecimal vip, BigDecimal fan, BigDecimal dance) throws ServiceException {
         try {
-            DayDao dayDao=factory.getDayDao();
-            Day day=new Day();
+            DayDao dayDao = factory.getDayDao();
+            Day day = new Day();
             day.setDate(date);
-            Integer day_id= dayDao.create(day);
+            Integer day_id = dayDao.create(day);
             day.setId(day_id);
-            TicketDao ticketDao= factory.getTicketDao();
-            Ticket ticket =new Ticket();
+            TicketDao ticketDao = factory.getTicketDao();
+            Ticket ticket = new Ticket();
             ticket.setDay(day);
             ticket.setType(TicketType.VIP);
             ticket.setPrice(vip);
@@ -140,6 +138,18 @@ public class AdminServiceImpl implements AdminService {
             ticket.setType(TicketType.DANCE_FlOOR);
             ticket.setPrice(dance);
             ticketDao.create(ticket);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
+    }
+
+    @Override
+    public void updatePrices(Integer day_id, BigDecimal vip, BigDecimal fan, BigDecimal dance) throws ServiceException {
+        try {
+            TicketDao ticketDao = factory.getTicketDao();
+            ticketDao.updatePriceByDayAndType(day_id,TicketType.VIP,vip);
+            ticketDao.updatePriceByDayAndType(day_id,TicketType.FAN_ZONE,fan);
+            ticketDao.updatePriceByDayAndType(day_id,TicketType.DANCE_FlOOR,dance);
         } catch (DaoException e) {
             throw new ServiceException(e);
         }

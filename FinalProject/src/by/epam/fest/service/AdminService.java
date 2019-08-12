@@ -26,5 +26,7 @@ public interface AdminService {
     void deleteMusician(String string) throws ServiceException;
 
     void addDayWithPrice(Date date, BigDecimal vip, BigDecimal fan, BigDecimal dance) throws ServiceException;
+
+    void updatePrices(Integer day_id,BigDecimal vip, BigDecimal fan, BigDecimal dance ) throws ServiceException;
 }
 

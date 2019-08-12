@@ -11,6 +11,7 @@ import by.epam.fest.action.button.impl.user.TicketsCommandImpl;
 import javax.servlet.http.HttpServletRequest;
 
 public class Link {
+    String PAGE_INDEX="/index.jsp";
     String PAGE_SIGN_IN="/WEB-INF/jsp/sign_in.jsp";
     String PAGE_TABLE_FEST="/WEB-INF/jsp/table_fest.jsp";
     String PAGE_ERROR = "/error.jsp";

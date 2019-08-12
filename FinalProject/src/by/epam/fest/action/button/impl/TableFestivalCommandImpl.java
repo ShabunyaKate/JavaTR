@@ -7,6 +7,7 @@ import by.epam.fest.domain.Day;
 import by.epam.fest.domain.Musician;
 import by.epam.fest.exception.ServiceException;
 import by.epam.fest.service.AdminService;
+import by.epam.fest.service.MusicianService;
 import by.epam.fest.service.ServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,10 +21,16 @@ public class TableFestivalCommandImpl implements BaseCommand {
     @Override
     public String execute(HttpServletRequest request) {
         try {
+//            ServiceFactory serviceFactory=ServiceFactory.getInstance();
+////            AdminService service=serviceFactory.getAdminService();
+////            List<Day> days=service.getAllDays();
+////            Map<Day,List<Musician>> linkedHashMap=service.getDaysMusicians(days);
+////            request.setAttribute("map",linkedHashMap);
             ServiceFactory serviceFactory=ServiceFactory.getInstance();
-            AdminService service=serviceFactory.getAdminService();
-            List<Day> days=service.getAllDays();
-            Map<Day,List<Musician>> linkedHashMap=service.getDaysMusicians(days);
+            MusicianService service=serviceFactory.getMusicianService();
+            AdminService serviceAdmin=serviceFactory.getAdminService();
+            List<Day> days=serviceAdmin.getAllDays();
+            Map<Day,List<Musician>> linkedHashMap=service.getDaysMusiciansWithImg(days);
             request.setAttribute("map",linkedHashMap);
             return PAGE_TABLE_FEST;
         }catch(ServiceException e){

@@ -8,6 +8,7 @@ import by.epam.fest.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -154,4 +155,27 @@ public class TicketDaoImpl extends DaoImpl implements TicketDao {
             } catch(SQLException | NullPointerException e) {}
         }
     }
+
+    @Override
+    public void updatePriceByDayAndType(Integer day_id, TicketType type, BigDecimal price) throws DaoException {
+        Connection con = null;
+        String sql = "UPDATE `ticket` SET `price` = ? WHERE `type` = ? AND `day_id`=?";
+        PreparedStatement statement = null;
+        try {
+            con = getDBConnection();
+            statement = con.prepareStatement(sql);
+            statement.setBigDecimal(1,price);
+            statement.setInt(2,type.getId() );
+            statement.setInt(3, day_id);
+            statement.executeUpdate();
+        } catch(SQLException e) {
+            throw new DaoException(e);
+        } finally {
+            try {
+                statement.close();
+            } catch(SQLException | NullPointerException e) {}
+        }
+
+    }
+
 }

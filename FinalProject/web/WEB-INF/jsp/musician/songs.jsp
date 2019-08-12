@@ -82,6 +82,11 @@
   <h1 class="text-center"> <input type="submit" name="submit" class="btn btn-info btn-md text-center" value="Удалить"></h1>
 </form>
 
+<form method="post" action="DownloadServlet" enctype="multipart/form-data">
+    Choose a file: <input type="file" name="multiPartServlet" />
+    <input type="submit" value="Upload" />
+</form>
+
 <!-- Footer -->
 <footer class="page-footer font-small bg-dark text-white cyan darken-3" >
     <div class="footer-copyright text-center py-3">© 2019 Copyright:

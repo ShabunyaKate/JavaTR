@@ -6,6 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:if test="${lang ==null}"><fmt:setLocale value="ru_RU" scope="session"/></c:if>
+<c:if test="${lang !=null}"><fmt:setLocale value="${lang}" scope="session"/></c:if>
+<fmt:setBundle basename="language"/>
 <html>
 <head>
   <title>Leto Fest</title>
@@ -21,21 +26,29 @@
   <a class="navbar-brand" href="index.jsp"><h4>Leto</h4> </a>
   <ul class="navbar-nav">
   <li class="nav-item active">
-    <a class="nav-link" href="ProjectServlet?link=table_fest">Участники</a>
+    <a class="nav-link" href="ProjectServlet?link=table_fest"> <fmt:message key="nav.client.fest"/></a>
   </li>
   </ul>
-    <ul class="nav navbar-nav">
-    </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="ProjectServlet?link=sign_in">Войти</a>
+      <form action="ProjectServlet" method="POST">
+        <input type="hidden" name="command"  value="change_Lang">
+        <input type="hidden" name="link"  value="index">
+        <input type="radio" name="change" id="1" value="ru_RU" onchange="this.form.submit()" >RU
+        <input type="radio" name="change" id="2" value="en_US" onchange="this.form.submit()"> EN
+        <input type="radio" name="change" id="3" value="de_DE" onchange="this.form.submit()" />DE<br/><br/>
+      </form>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="ProjectServlet?link=sign_in"> <fmt:message key="nav.client.signin"/></a>
       </li>
     </ul>
 </nav>
 <hr class="featurette-divider">
 <hr class="featurette-divider">
 <hr class="featurette-divider">
-<h2 class= "text-info">Leto-один из лучших летних фестивалей в Беларуси</h2>
+<h2 class= "text-info">
+  <fmt:message key="index.greating"/></h2>
 <hr class="featurette-divider">
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
@@ -62,10 +75,7 @@
 <div class="container">
   <hr class="featurette-divider">
   <h2 class="text-info">Leto 2019</h2>
-  <p>Фестиваль масштабно вышел на орбиту второго десятилетия и, как обычно, дарит живые выступления знаменитых музыкантов! В прошлом году "Leto" посетило не менее 45 000 человек! Но в этом году мы ждем еще больше гостей, не зря площадь фестиваля увеличивается с каждым годом.
-
-    Огромный заряд положительных эмоций, любимые исполнители, очередной шаг в совершенствовании сервиса (в частности, больше точек на фудкорте!), встречи с друзьями - этот яркий день запомнится надолго. До встречи на "Leto" - продажа билетов уже началась!
-
+  <p><fmt:message key="index.description"/>
   </p>
   <hr class="featurette-divider">
 </div>
