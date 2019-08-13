@@ -33,6 +33,15 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
+            <form action="ProjectServlet" method="POST">
+                <input type="hidden" name="command"  value="change_Lang">
+                <input type="hidden" name="link"  value="table_fest">
+                <input type="radio" name="change" id="1" value="ru_RU" onchange="this.form.submit()" >RU
+                <input type="radio" name="change" id="2" value="en_US" onchange="this.form.submit()"> EN
+                <input type="radio" name="change" id="3" value="de_DE" onchange="this.form.submit()" />DE<br/><br/>
+            </form>
+        </li>
+        <li class="nav-item active">
             <a class="nav-link" href="ProjectServlet?link=sign_in"><fmt:message key="nav.client.signin"/></a>
         </li>
     </ul>
@@ -49,10 +58,10 @@
             <hr class="featurette-divider">
             <div class="col-sm-4">
                 <c:if test="${item.img==null}">
-                <img src="img/avatar/bird.jpg" alt="Vogue" style="width:50%;">
+                <img id="photo" src="img/avatar/bird.jpg" alt="Vogue" style="width:50%;">
                 </c:if>
                 <c:if test="${item.img!=null}">
-                <img src="data:image/jpeg;base64, ${item.img}"/>
+                <img id="photo" src="data:image/jpeg;base64, ${item.img}"/>
                 </c:if>
             </div>
             <div class="col-sm-8">

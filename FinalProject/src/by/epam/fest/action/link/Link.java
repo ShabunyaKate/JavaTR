@@ -34,6 +34,9 @@ public class Link {
         String link = PAGE_ERROR;
         switch (command) {
             //index
+            case "index":
+                link = PAGE_INDEX;
+                break;
             case "sign_in":
                 link = PAGE_SIGN_IN;
                 break;

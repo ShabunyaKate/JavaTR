@@ -75,7 +75,8 @@
 <div class="container">
   <hr class="featurette-divider">
   <h2 class="text-info">Leto 2019</h2>
-  <p><fmt:message key="index.description"/>
+  <p>
+    <fmt:message key="index.description"/>
   </p>
   <hr class="featurette-divider">
 </div>

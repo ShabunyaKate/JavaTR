@@ -6,8 +6,9 @@ import by.epam.fest.action.button.impl.admin.*;
 import by.epam.fest.action.button.impl.musician.AddSongCommandImpl;
 import by.epam.fest.action.button.impl.musician.DeleteSongCommandImpl;
 import by.epam.fest.action.button.impl.TableFestivalCommandImpl;
+import by.epam.fest.action.button.impl.musician.DownloadImgCommadnImpl;
 import by.epam.fest.action.button.impl.user.*;
-import by.epam.fest.service.ServiceFactory;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,6 +44,7 @@ public class CommandChooser {
         repository.put(CommandName.USER_TABLE, new TableUserCommandImpl());
         repository.put(CommandName.UPDATE_PRICES, new UpdatePricesCommandImpl());
         repository.put(CommandName.SIGN_OUT, new SignOutCommandImpl());
+        repository.put(CommandName.UPLOAD_IMG,new DownloadImgCommadnImpl());
     }
 
 //    public  BaseCommand defineCommand(String action) {

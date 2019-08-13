@@ -15,6 +15,7 @@ public enum CommandName {
     //musician
     ADD_SONG("add_song"),
     DELETE_SONG("delete_song"),
+    UPLOAD_IMG("upload_file"),
     //admin
     ADD_DAY("add_day"),
     ADD_MUSICIAN("add_musician"),

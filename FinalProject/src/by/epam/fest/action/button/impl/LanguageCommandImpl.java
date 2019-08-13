@@ -1,6 +1,7 @@
 package by.epam.fest.action.button.impl;
 
 import by.epam.fest.action.button.BaseCommand;
+import by.epam.fest.action.link.Link;
 import by.epam.fest.domain.Lang;
 import by.epam.fest.domain.LangHolder;
 
@@ -15,6 +16,8 @@ public class LanguageCommandImpl implements BaseCommand {
         session.setAttribute("lang",s);
         LangHolder langHolder= LangHolder.getInstance();
         langHolder.setLocale(s);
-        return "index.jsp";
+        Link link =new Link();
+        link.getPage(request);
+        return link.getPage(request);
     }
 }

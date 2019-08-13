@@ -1,10 +1,7 @@
 package by.epam.fest.controller;
 import by.epam.fest.domain.Musician;
-import by.epam.fest.exception.ServiceException;
 import by.epam.fest.service.MusicianService;
 import by.epam.fest.service.ServiceFactory;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.*;
@@ -29,9 +26,13 @@ public class DownloadServlet extends HttpServlet {
                 InputStream inputStream = part.getInputStream();
                 service.downloadImageIntoDB(inputStream,musician_id);
             }
-        }catch(ServiceException e){
+        }catch(Exception e){
+            String s="Ошибка загрузки файла, повторите еще раз";
+            request.setAttribute("exception",s);
         }
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsp/musician/songs.jsp");
-        requestDispatcher.forward(request, response);
+
+       // RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsp/musician/songs.jsp");
+       // requestDispatcher.forward(request, response);
+        response.sendRedirect("ProjectServlet?link=songs");
     }
 }

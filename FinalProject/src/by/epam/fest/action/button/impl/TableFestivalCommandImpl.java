@@ -21,11 +21,6 @@ public class TableFestivalCommandImpl implements BaseCommand {
     @Override
     public String execute(HttpServletRequest request) {
         try {
-//            ServiceFactory serviceFactory=ServiceFactory.getInstance();
-////            AdminService service=serviceFactory.getAdminService();
-////            List<Day> days=service.getAllDays();
-////            Map<Day,List<Musician>> linkedHashMap=service.getDaysMusicians(days);
-////            request.setAttribute("map",linkedHashMap);
             ServiceFactory serviceFactory=ServiceFactory.getInstance();
             MusicianService service=serviceFactory.getMusicianService();
             AdminService serviceAdmin=serviceFactory.getAdminService();

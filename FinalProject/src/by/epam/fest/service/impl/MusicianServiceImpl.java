@@ -73,8 +73,6 @@ public class MusicianServiceImpl implements MusicianService {
     @Override
     public void downloadImageIntoDB(InputStream inputStream, Integer musician_id) throws ServiceException {
             try {
-             //   BufferedImage image = ImageIO.read(inputStream);
-              //  Byte.inputStream
                 byte[] bytes = MusicianServiceImpl.getBytesFromInputStream(inputStream);
                 MusicianDao dao=daoObjectFactory.getMusicianDao();
                 dao.addBlobToMusician(bytes,musician_id);

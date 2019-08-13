@@ -81,11 +81,23 @@
     <input type="hidden" name="command"  value="delete_song">
   <h1 class="text-center"> <input type="submit" name="submit" class="btn btn-info btn-md text-center" value="Удалить"></h1>
 </form>
+<div class="form-group">
+    <h3 class="text-warning">Загрузите вашу фотографию</h3>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <form  action="DownloadServlet" method="post"  enctype="multipart/form-data">
+                <input type="file" name="multiPartServlet" />
+                <input  type="submit" class="btn btn-info btn-md text-center" value="Upload" />
+            </form>
+            <c:if test="${exception !=null}">
+                <h7 class="text-danger">${exception}</h7>
+            </c:if>
+        </div>
+        <div class="col"></div>
+    </div>
 
-<form method="post" action="DownloadServlet" enctype="multipart/form-data">
-    Choose a file: <input type="file" name="multiPartServlet" />
-    <input type="submit" value="Upload" />
-</form>
+
 
 <!-- Footer -->
 <footer class="page-footer font-small bg-dark text-white cyan darken-3" >

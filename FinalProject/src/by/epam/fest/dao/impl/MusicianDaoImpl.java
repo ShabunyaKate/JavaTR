@@ -291,11 +291,8 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
         Connection con = null;
         String sql = "UPDATE `musician` SET `img` = ? WHERE `id` = ?";
         PreparedStatement statement = null;
-        ResultSet resultSet = null;
         try {
             con = getDBConnection();
-//            OutputStream outputStream = blob.setBinaryStream(1);
-//            ImageIO.write(image, "jpg", outputStream);
             statement = con.prepareStatement(sql);
             statement.setBytes(1, bytes);
             statement.setInt(2, musician_id);
@@ -336,11 +333,8 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
                 musician.setSongs(songDao.readAllSongsByMusician(id));
                 byte[] blob = resultSet.getBytes("img");
                 if (blob != null) {
-              //      int blobLength = (int) blob.length();
-                  //  byte[] blobAsBytes = blob.getBytes(1, blobLength);
-                    String encode = Base64.getEncoder().encodeToString(blob);//blobAsBytes
+                    String encode = Base64.getEncoder().encodeToString(blob);
                     musician.setImg(encode);
-                   // blob.free();
                 }
                 musicians.add(musician);
             }
@@ -358,8 +352,6 @@ public class MusicianDaoImpl extends DaoImpl implements MusicianDao {
             }
         }
     }
-
-
 }
 
 
