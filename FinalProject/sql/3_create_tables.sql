@@ -18,7 +18,7 @@ CREATE TABLE `user` (
 	`id` INTEGER PRIMARY KEY AUTO_INCREMENT,
 	`info_id` INTEGER ,
 	`login` VARCHAR(255) NOT NULL UNIQUE,
-	`password` CHAR(10) NOT NULL,
+	`password` CHAR(25) NOT NULL,
 	/*
 	 * 0 - (Role.ADMINISTRATOR)
 	 * 1 - (Role.MUSICIAN)

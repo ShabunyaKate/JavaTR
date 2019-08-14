@@ -37,6 +37,21 @@
         </li>
     </ul>
 </nav>
+<hr class="featurette-divider">
+<hr class="featurette-divider">
+<hr class="featurette-divider">
+<div class="container">
+    <hr class="featurette-divider">
+    <h2 class="text-info">Дорогой участник фестиваля Leto, <h2 class="text-black-50">${user.login}</h2> </h2>
+    <h4 class="text-success text-center">
+        В данном профиле вы можете:
+        <hr class="featurette-divider">
+        <h4 class="text-success text-info"> 1)Забронировать билет</h4>
+        <hr class="featurette-divider">
+        <h4 class="text-success text-info">2)Просмотреть все забронированные билеты и их общую стоймость</h4>
+    </h4>
+    <hr class="featurette-divider">
+</div>
 <!-- Footer -->
 <footer class="page-footer font-small bg-dark text-white cyan darken-3 fixed-bottom" >
     <div class="footer-copyright text-center py-3">© 2019 Copyright:

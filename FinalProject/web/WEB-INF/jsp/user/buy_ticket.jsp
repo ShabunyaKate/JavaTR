@@ -25,9 +25,15 @@
         <li class="nav-item active">
             <a class="nav-link" href="ProjectServlet?link=user_ticket">Moи билеты</a>
         </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <img src=${user.avatar} class="rounded" alt="Cinque Terre" width="50">
+        </li>
+        <li  class="nav-item"><p>${user.login}</p></li>
         <li class="nav-item active">
             <form  action="ProjectServlet" method="post">
-                <button  class="btn btn-primary btn-block " type="submit">Sign Out</button>
+                <button  class="btn btn-info btn-block " type="submit">Sign Out</button>
                 <input type="hidden" name="command" value="sign_out">
             </form>
         </li>
@@ -38,16 +44,32 @@
 <hr class="featurette-divider">
 <form class="form" action="ProjectServlet" method="post">
     <h3 class="text-center text-info" >Забронировать билет</h3>
-    <select class="custom-select mr-sm-2" name="book_id_ticket">
-        <c:forEach items="${tickets}" var="item">
-            <option value="${item.id}">День:${item.day.date} Тип:${item.type} </option>
-            <hr class="featurette-divider">
-        </c:forEach>
-    </select>
-    <input type="number" name="count" class="form-control" required>
+        <hr class="featurette-divider">
+        <h4 class="text-info text-center">Выберете тип билета</h4>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <select class="custom-select mr-sm-2" name="book_id_ticket">
+                <c:forEach items="${tickets}" var="item">
+                    <option value="${item.id}">День:${item.day.date} Тип:${item.type} </option>
+                    <hr class="featurette-divider">
+                </c:forEach>
+            </select>
+        </div>
+        <div class="col"></div>
+    </div>
+    <hr class="featurette-divider">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <h4 class="text-info text-center">Введите нужное количество билетов</h4>
+            <input type="number" name="count" class="form-control" minlength="1" maxlength="2" min="1" max="10" required>
+        </div>
+        <div class="col"></div>
+    </div>
     <div class="form-group">
         <input type="hidden" name="command"  value="book_ticket">
-        <input type="submit" name="submit" class="btn btn-info btn-md" value="Book">
+        <h1 class="text-center"> <input type="submit" name="submit" class="btn btn-info btn-md" value="Забронировать"></h1>
     </div>
 </form>
 <!-- Footer -->

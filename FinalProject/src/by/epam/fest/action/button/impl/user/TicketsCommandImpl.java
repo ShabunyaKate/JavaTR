@@ -4,6 +4,9 @@ import by.epam.fest.action.button.BaseCommand;
 import by.epam.fest.dao.impl.TicketDaoImpl;
 import by.epam.fest.domain.Ticket;
 import by.epam.fest.exception.DaoException;
+import by.epam.fest.exception.ServiceException;
+import by.epam.fest.service.ServiceFactory;
+import by.epam.fest.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,13 +17,13 @@ public class TicketsCommandImpl implements BaseCommand {
     @Override
     public String execute(HttpServletRequest request) {
         HttpSession session=request.getSession(false);
-        TicketDaoImpl ticketDao=new TicketDaoImpl();
-        List<Ticket> tickets= null;
+        ServiceFactory serviceFactory=ServiceFactory.getInstance();
+        UserService userService=serviceFactory.getUserService();
         try {
-            tickets = ticketDao.readAllTickets();
+            List<Ticket> tickets = userService.getAllTickets();
             session.setAttribute("tickets",tickets);
             return PAGE_USER_BUY_TICKET;
-        } catch (DaoException e) {
+        } catch (ServiceException e) {
            return PAGE_ERROR;
         }
     }

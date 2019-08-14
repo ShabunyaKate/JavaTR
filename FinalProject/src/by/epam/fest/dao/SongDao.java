@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface SongDao extends Dao<Song> {
     List<Song> readAllSongsByMusician(Integer id) throws DaoException;
+    boolean isUniqueName(String name) throws DaoException;
 }

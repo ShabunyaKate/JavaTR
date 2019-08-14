@@ -23,10 +23,7 @@
     <a class="navbar-brand" href="ProjectServlet?link=musician_index"><h4 class="text-warning">Leto</h4></a>
     <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="ProjectServlet?link=songs">Удаление и добавление песен</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled"  href="ProjectServlet?link=musician_photo">Изменить фото</a>
+            <a class="nav-link" href="ProjectServlet?link=songs">Управление песнями ии фотографиями</a>
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -50,7 +47,7 @@
         <hr class="featurette-divider">
         <h4 class="text-success text-center"> 1) добавить или удалить ваши песни в плейлисте.</h4>
         <hr class="featurette-divider">
-        <h4 class="text-success text-center">2) загрузить фотографию, которая будет отображаться на главной странице сайта(в разработке)</h4>
+        <h4 class="text-success text-center">2) загрузить фотографию, которая будет отображаться на главной странице сайта</h4>
     </h4>
     <hr class="featurette-divider">
 </div>

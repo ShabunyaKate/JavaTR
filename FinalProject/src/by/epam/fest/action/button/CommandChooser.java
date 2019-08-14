@@ -8,12 +8,16 @@ import by.epam.fest.action.button.impl.musician.DeleteSongCommandImpl;
 import by.epam.fest.action.button.impl.TableFestivalCommandImpl;
 import by.epam.fest.action.button.impl.musician.DownloadImgCommadnImpl;
 import by.epam.fest.action.button.impl.user.*;
+import by.epam.fest.dao.impl.MusicianDaoImpl;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class CommandChooser {
+    private static Logger logger = LogManager.getLogger(CommandChooser.class);
     private static class LazyHolder {
         public static final CommandChooser INSTANCE = new CommandChooser();
     }
@@ -31,20 +35,18 @@ public class CommandChooser {
         repository.put(CommandName.REGISTRATION, new RegistrationCommandImpl());
         repository.put(CommandName.BOOK_TICKET, new BookTicketCommandImpl());
         repository.put(CommandName.DELETE_USAGE, new DeleteUsageCommandImpl());
-        repository.put(CommandName.TICKETS, new TicketsCommandImpl());
-        repository.put(CommandName.TICKET_TABLE, new TicketTableCommandImpl());
         repository.put(CommandName.ADD_SONG, new AddSongCommandImpl());
         repository.put(CommandName.DELETE_SONG, new DeleteSongCommandImpl());
         repository.put(CommandName.ADD_DAY, new AddDayCommandImpl());
         repository.put(CommandName.ADD_MUSICIAN, new AddMusicianCommandImpl());
         repository.put(CommandName.DELETE_MUSICIAN, new DeleteMusicianCommandImpl());
         repository.put(CommandName.DELETE_USER, new DeleteUserCommandImpl());
-        repository.put(CommandName.PAGE_FEST, new FestPageCommandImpl());
         repository.put(CommandName.MUSICIAN_TABLE, new TableMusicianCommandImpl());
         repository.put(CommandName.USER_TABLE, new TableUserCommandImpl());
         repository.put(CommandName.UPDATE_PRICES, new UpdatePricesCommandImpl());
         repository.put(CommandName.SIGN_OUT, new SignOutCommandImpl());
         repository.put(CommandName.UPLOAD_IMG,new DownloadImgCommadnImpl());
+
     }
 
 //    public  BaseCommand defineCommand(String action) {
@@ -107,6 +109,7 @@ public class CommandChooser {
 //    }
 
     public  BaseCommand defineCommand(String action) {
+        logger.warn("EHFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
         CommandName commandName = null;
         BaseCommand command = null;
         try {

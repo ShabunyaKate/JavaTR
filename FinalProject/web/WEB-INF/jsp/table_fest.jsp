@@ -58,7 +58,7 @@
             <hr class="featurette-divider">
             <div class="col-sm-4">
                 <c:if test="${item.img==null}">
-                <img id="photo" src="img/avatar/bird.jpg" alt="Vogue" style="width:50%;">
+                <img id="photo" src="leto.png" alt="Vogue" style="width:50%;">
                 </c:if>
                 <c:if test="${item.img!=null}">
                 <img id="photo" src="data:image/jpeg;base64, ${item.img}"/>

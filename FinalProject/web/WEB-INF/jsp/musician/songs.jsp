@@ -22,10 +22,7 @@
     <a class="navbar-brand" href="ProjectServlet?link=musician_index"><h4 class="text-warning">Leto</h4></a>
     <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="ProjectServlet?link=songs">Удаление и добавление песен</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled"  href="ProjectServlet?link=musician_photo">Изменить фото</a>
+            <a class="nav-link" href="ProjectServlet?link=songs">Управление песнями ии фотографиями</a>
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -55,15 +52,16 @@
     <div class="row">
         <div class="col"></div>
         <div class="col">
-    <input type="text" name="add_new_song" class="form-control" required>
+    <input type="text" pattern="^[а-яА-ЯёЁa-zA-Z0-9 ]+$" name="add_new_song" class="form-control" minlength="1" maxlength="25" required>
+            <c:if test="${exception !=null}"><h7 class="text-danger">${exception}</h7></c:if>
         </div>
         <div class="col"></div>
     </div>
-    <input type="hidden" name="command"  value="add_song">
+
+    <input type="hidden" name="command" value="add_song">
     <h1 class="text-center"> <input type="submit" name="submit" class="btn btn-info btn-md" value="Добавить"></h1>
 </div>
 </form>
-
 <form class="form" action="ProjectServlet" method="post">
 <h3 class="text-center text-success" >Удаление песни</h3>
     <div class="row">
@@ -82,13 +80,13 @@
   <h1 class="text-center"> <input type="submit" name="submit" class="btn btn-info btn-md text-center" value="Удалить"></h1>
 </form>
 <div class="form-group">
-    <h3 class="text-warning">Загрузите вашу фотографию</h3>
+    <h3 class="text-success">Загрузите вашу фотографию</h3>
     <div class="row">
         <div class="col"></div>
         <div class="col">
             <form  action="DownloadServlet" method="post"  enctype="multipart/form-data">
-                <input type="file" name="multiPartServlet" />
-                <input  type="submit" class="btn btn-info btn-md text-center" value="Upload" />
+                <input type="file" pattern="(.*)\.(png|jpeg|jpg)$" name="multiPartServlet"/>
+                <input  type="submit" class="btn btn-info btn-md text-center" value="Загрузить"/>
             </form>
             <c:if test="${exception !=null}">
                 <h7 class="text-danger">${exception}</h7>
@@ -96,9 +94,6 @@
         </div>
         <div class="col"></div>
     </div>
-
-
-
 <!-- Footer -->
 <footer class="page-footer font-small bg-dark text-white cyan darken-3" >
     <div class="footer-copyright text-center py-3">© 2019 Copyright:

@@ -21,14 +21,20 @@ public class AddSongCommandImpl implements BaseCommand {
         String name = request.getParameter("add_new_song");
         HttpSession session = request.getSession(false);
         Musician musician = (Musician) session.getAttribute("musician");
-        Song song = new Song();
-        song.setSong(name);
-        song.setMusician_id(musician.getId());
         try {
-           Integer id_new_song= service.addSong(song);
-           song.setId(id_new_song);
-            musician.add(song);
-            session.setAttribute("musician", musician);
+            if(service.isUniqieSong(name)) {
+                Integer id_new_song = service.addSong(name, musician.getId());
+                Song song = new Song();
+                song.setSong(name);
+                song.setMusician_id(musician.getId());
+                song.setId(id_new_song);
+                musician.add(song);
+                session.setAttribute("musician", musician);
+            }
+            else {
+                String s="Такая песня уже добавлена";
+                request.setAttribute("exception",s);
+            }
         } catch (ServiceException e) {
         } finally {
             return PAGE_SONG_TABLE;

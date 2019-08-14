@@ -17,7 +17,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-primary text-white navbar-dark  justify-content-center fixed-top">
-    <a class="navbar-brand" href="ProjectServlet?link=user_index">Leto</a><!--поменять jsp-->
+    <a class="navbar-brand" href="ProjectServlet?link=user_index">Leto</a>
     <ul class="navbar-nav">
         <li class="nav-item active">
             <a class="nav-link" href="ProjectServlet?link=buy_ticket">Купить билет</a>
@@ -25,9 +25,15 @@
         <li class="nav-item active">
             <a class="nav-link" href="ProjectServlet?link=user_ticket">Moи билеты</a>
         </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <img src=${user.avatar} class="rounded" alt="Cinque Terre" width="50">
+        </li>
+        <li  class="nav-item"><p>${user.login}</p></li>
         <li class="nav-item active">
             <form  action="ProjectServlet" method="post">
-                <button  class="btn btn-primary btn-block " type="submit">Sign Out</button>
+                <button  class="btn btn-info btn-block " type="submit">Sign Out</button>
                 <input type="hidden" name="command" value="sign_out">
             </form>
         </li>
@@ -39,6 +45,7 @@
 <section class="container">
     <h1>Билеты</h1>
     <div class="row">
+<%--<c:if test="${usages !=null}">--%>
 <c:set var="total" value="${0}"/>
 <c:forEach items="${usages}" var="item">
         <article class="card fl-left">
@@ -79,7 +86,11 @@
     </div>
 </section>
 <h2 class="text-center text-success">Общая стоймость</h2>
-<h3 class="text-center text-info">$${total}</h3>
+<h3 class="text-center text-info">${total}</h3>
+<%--</c:if>--%>
+<%--<c:if test="${usages ==null}">--%>
+    <%--<h1>У вас нет билетов</h1>--%>
+<%--</c:if>--%>
 <!-- Footer -->
 <footer class="page-footer font-small bg-dark text-white cyan darken-3 " >
     <div class="footer-copyright text-center py-3">© 2019 Copyright:

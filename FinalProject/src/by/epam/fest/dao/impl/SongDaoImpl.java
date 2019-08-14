@@ -144,6 +144,33 @@ public class SongDaoImpl extends DaoImpl implements SongDao {
             } catch(SQLException | NullPointerException e) {}
         }
     }
+
+    @Override
+    public boolean isUniqueName(String name) throws DaoException {
+            Connection con = null;
+            String sql="SELECT `id` FROM `song` WHERE `name` = ?";
+            PreparedStatement statement = null;
+            ResultSet resultSet = null;
+            try {
+                con = getDBConnection();
+                statement = con.prepareStatement(sql);
+                statement.setString(1,name);
+                resultSet = statement.executeQuery();
+                if(resultSet.next()) {
+                    return false;
+                }else return true;
+            } catch(SQLException e) {
+                throw new DaoException(e);
+            } finally {
+                try {
+                    resultSet.close();
+                } catch(SQLException | NullPointerException e) {}
+                try {
+                    statement.close();
+                } catch(SQLException | NullPointerException e) {}
+            }
+
     }
+}
 
 

@@ -6,6 +6,8 @@ import by.epam.fest.dao.TicketUsageDao;
 import by.epam.fest.dao.impl.SongDaoImpl;
 import by.epam.fest.dao.impl.TicketUsageDaoImpl;
 import by.epam.fest.domain.*;
+import by.epam.fest.service.ServiceFactory;
+import by.epam.fest.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,27 +15,18 @@ import javax.servlet.http.HttpSession;
 public class BookTicketCommandImpl implements BaseCommand {
     @Override
     public String execute(HttpServletRequest request) {
-        HttpSession session= request.getSession(false);
+        HttpSession session=request.getSession(false);
+        ServiceFactory serviceFactory=ServiceFactory.getInstance();
+        UserService userService=serviceFactory.getUserService();
         String str= request.getParameter("book_id_ticket");
-        Integer id=Integer.valueOf(str);
         String str1= request.getParameter("count");
-        Integer count=Integer.valueOf(str1);
-        TicketUsageDao usageDao=new TicketUsageDaoImpl();
-        TicketUsage usage=new TicketUsage();
-        Ticket ticket=new Ticket();
-        ticket.setId(id);
-         User user=(User)session.getAttribute("user");
-         usage.setTicket(ticket);
-         usage.setUser(user);
-         usage.setCount(count);
+        User user=(User)session.getAttribute("user");
         try {
-            usageDao.create(usage);
+            userService.bookTicket(str, user,str1);
            return PAGE_USER_BUY_TICKET;
         }
         catch(Exception e){
             return PAGE_ERROR;
         }
-        //посмотреть на уникальность
-
     }
 }

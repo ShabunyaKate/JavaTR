@@ -11,10 +11,11 @@ import java.util.List;
 import java.util.Map;
 
 public interface MusicianService {
-    int addSong(Song song) throws ServiceException;
+    int addSong(String name, Integer id) throws ServiceException;
     void deleteSong(Integer id) throws ServiceException;
     Musician getMusician(User user)throws ServiceException;
     Musician updateMusicianSongs(Musician musician) throws ServiceException;
     void downloadImageIntoDB(InputStream inputStream, Integer musician_id) throws ServiceException;
     Map<Day, List<Musician>> getDaysMusiciansWithImg(List<Day> days) throws  ServiceException;
+    boolean isUniqieSong(String name) throws ServiceException;
 }

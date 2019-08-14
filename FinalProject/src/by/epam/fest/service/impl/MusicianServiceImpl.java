@@ -12,6 +12,8 @@ import by.epam.fest.domain.User;
 import by.epam.fest.exception.DaoException;
 import by.epam.fest.exception.ServiceException;
 import by.epam.fest.service.MusicianService;
+import by.epam.fest.validation.Validation;
+import by.epam.fest.validation.ValidationImpl;
 import org.apache.logging.log4j.core.util.IOUtils;
 
 import javax.imageio.ImageIO;
@@ -26,8 +28,15 @@ import java.util.Map;
 public class MusicianServiceImpl implements MusicianService {
     DAOFactory daoObjectFactory = DAOFactory.getInstance();
     @Override
-    public int addSong(Song song) throws ServiceException {
+    public int addSong(String name, Integer id) throws ServiceException {
         try {
+            Validation validation= ValidationImpl.getInstance();
+            if (!validation.isLogin(name)){
+                throw new ServiceException();
+            }
+            Song song=new Song();
+            song.setMusician_id(Integer.valueOf(id));
+            song.setSong(name);
             SongDao songDao = daoObjectFactory.getSongDao();
             return songDao.create(song);
         } catch (DaoException e) {
@@ -44,7 +53,6 @@ public class MusicianServiceImpl implements MusicianService {
             throw new ServiceException();
         }
     }
-
     @Override
     public Musician getMusician(User user) throws ServiceException {
         try {
@@ -96,6 +104,21 @@ public class MusicianServiceImpl implements MusicianService {
            throw new ServiceException(e);
        }
     }
+
+    @Override
+    public boolean isUniqieSong(String name) throws ServiceException {
+        try{
+            SongDao songDao=daoObjectFactory.getSongDao();
+           if(songDao.isUniqueName(name)){
+               return true;
+           }
+           else return false;
+        }
+        catch (DaoException e){
+            throw new ServiceException();
+        }
+    }
+
     public static byte[] getBytesFromInputStream(InputStream is) throws IOException {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         byte[] buffer = new byte[0xFFFF];

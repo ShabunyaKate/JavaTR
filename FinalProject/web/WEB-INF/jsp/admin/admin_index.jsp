@@ -18,7 +18,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-info text-white navbar-dark  justify-content-center fixed-top">
-    <a class="navbar-brand" href="ProjectServlet?link=admin_index">Leto</a>
+    <a class="navbar-brand" href="ProjectServlet?link=admin_index"><h4>Leto</h4></a>
     <ul class="navbar-nav">
         <li class="nav-item active">
             <a class="nav-link" href="ProjectServlet?link=admin_users">Управление пользователями</a>

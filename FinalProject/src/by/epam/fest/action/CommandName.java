@@ -10,8 +10,6 @@ public enum CommandName {
     //user
     BOOK_TICKET("book_ticket"),
     DELETE_USAGE("delete_usage"),
-    TICKETS("1111"),
-    TICKET_TABLE("2222"),
     //musician
     ADD_SONG("add_song"),
     DELETE_SONG("delete_song"),
@@ -21,14 +19,13 @@ public enum CommandName {
     ADD_MUSICIAN("add_musician"),
     DELETE_MUSICIAN("delete_musician"),
     DELETE_USER("delete_user"),
-    PAGE_FEST("3333"),
     MUSICIAN_TABLE("musician_table"),
     USER_TABLE("user_table"),
     UPDATE_PRICES("update_price");
 
     private String name;
 
-    private CommandName(String name) {
+   private CommandName(String name) {
         this.name = name;
     }
     public String getName() {
@@ -37,7 +34,6 @@ public enum CommandName {
    public static CommandName findEnum(String name){
         CommandName commandName=null;
        CommandName[] values = CommandName.values();
-       String enumValue = null;
        for(CommandName eachValue : values) {
            if(eachValue.getName().equals(name)){
                return eachValue;

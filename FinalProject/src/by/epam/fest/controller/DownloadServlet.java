@@ -30,9 +30,6 @@ public class DownloadServlet extends HttpServlet {
             String s="Ошибка загрузки файла, повторите еще раз";
             request.setAttribute("exception",s);
         }
-
-       // RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsp/musician/songs.jsp");
-       // requestDispatcher.forward(request, response);
         response.sendRedirect("ProjectServlet?link=songs");
     }
 }
