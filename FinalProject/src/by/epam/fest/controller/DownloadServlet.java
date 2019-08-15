@@ -12,11 +12,19 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.InputStream;
 
-
+/**Servlet for downloading image into database
+ * after work forward to ProjectServlet
+ */
 @MultipartConfig(fileSizeThreshold = 1024 * 1024,
         maxFileSize = 1024 * 1024 * 5,
         maxRequestSize = 1024 * 1024 * 5 * 5)
 public class DownloadServlet extends HttpServlet {
+    /**
+     * @param request has Parts, from this program get input stream
+     * @param response
+     * @catch Exceptions that can be in parsing and set it in request
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         ServiceFactory factory=ServiceFactory.getInstance();

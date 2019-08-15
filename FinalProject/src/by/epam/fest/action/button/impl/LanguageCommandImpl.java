@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public class LanguageCommandImpl implements BaseCommand {
+    /**
+     * Used for changing language, set in session new lang ,
+     * and set new local in programm
+     * @param
+     * @return
+     */
     @Override
     public String execute(HttpServletRequest request) {
         HttpSession session = request.getSession(false);

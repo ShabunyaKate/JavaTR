@@ -14,6 +14,7 @@ import by.epam.fest.domain.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+
 public class Link {
     String PAGE_INDEX="/index.jsp";
     String PAGE_SIGN_IN="/WEB-INF/jsp/sign_in.jsp";
@@ -24,6 +25,12 @@ public class Link {
     String PAGE_ADMIN_INDEX="/WEB-INF/jsp/admin/admin_index.jsp";
     String PAGE_USER_INDEX="/WEB-INF/jsp/user/user_index.jsp";
 
+    /**
+     *
+     * @param request get from that param link, and all roles that is in session
+     * @return string that used for forwarding into new page
+     * if client want to get page that is not his function or smt garbage ,set error page
+     */
     public String getPage(HttpServletRequest request) {
         HttpSession session=request.getSession(false);
         Musician musician=(Musician) session.getAttribute("musician");

@@ -1,4 +1,9 @@
 package by.epam.fest.exception;
+
+/**
+ * exception that throws in service
+ * used like wrapper to DaoException
+ */
 public class ServiceException extends Exception {
     public ServiceException() {
     }

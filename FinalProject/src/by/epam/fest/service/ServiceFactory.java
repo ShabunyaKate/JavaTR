@@ -6,6 +6,10 @@ import by.epam.fest.service.impl.ClientServiceImpl;
 import by.epam.fest.service.impl.MusicianServiceImpl;
 import by.epam.fest.service.impl.UserServiceImpl;
 
+/**
+ * Singletone
+ * factory tht return Service that we need
+ */
 public final class ServiceFactory {
     private ServiceFactory() {
     }

@@ -20,5 +20,10 @@ public interface BaseCommand {
     String PAGE_USER_BUY_TICKET="/WEB-INF/jsp/user/buy_ticket.jsp";
     String PAGE_USER_TICKET="/WEB-INF/jsp/user/user_ticket.jsp";
 
+ /**
+  * Used for doing some work with request parametr, that client need
+  * @param request
+  * @return String that is page, than in servlet forward into this
+  */
     String execute(HttpServletRequest request);
 }

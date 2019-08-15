@@ -1,5 +1,8 @@
 package by.epam.fest.exception;
 
+/**
+ * Exception throws in Dao
+ */
 public class DaoException extends Exception {
     public DaoException() {
     }

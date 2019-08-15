@@ -1,5 +1,9 @@
 package by.epam.fest.action;
 
+/**
+ * class used for commands
+ */
+
 public enum CommandName {
     ERROR(""),
     LANGUAGE("change_Lang"),
@@ -25,20 +29,26 @@ public enum CommandName {
 
     private String name;
 
-   private CommandName(String name) {
+    private CommandName(String name) {
         this.name = name;
     }
+
     public String getName() {
         return name;
     }
-   public static CommandName findEnum(String name){
-        CommandName commandName=null;
-       CommandName[] values = CommandName.values();
-       for(CommandName eachValue : values) {
-           if(eachValue.getName().equals(name)){
-               return eachValue;
-           }
-       }
-       return commandName;
-   }
+
+    /**
+     * @param name of enum
+     * @return null if there no coincidences, else return Enum representation of this sting "name"
+     */
+    public static CommandName findEnum(String name) {
+        CommandName commandName = null;
+        CommandName[] values = CommandName.values();
+        for (CommandName eachValue : values) {
+            if (eachValue.getName().equals(name)) {
+                return eachValue;
+            }
+        }
+        return commandName;
+    }
 }

@@ -14,6 +14,8 @@ import org.apache.logging.log4j.Logger;
 import java.util.HashMap;
 import java.util.Map;
 
+/**Singletone
+ */
 public class CommandChooser {
     private static Logger logger = LogManager.getLogger(CommandChooser.class);
     private static class LazyHolder {
@@ -25,6 +27,9 @@ public class CommandChooser {
     }
     private final Map<CommandName, BaseCommand> repository = new HashMap<>();
 
+    /**
+     * pairs key Command enum values child of BaseCommand
+     */
     private CommandChooser() {
         repository.put(CommandName.ERROR, new DefaultCommandImpl());
         repository.put(CommandName.LANGUAGE, new LanguageCommandImpl());
@@ -45,6 +50,11 @@ public class CommandChooser {
         repository.put(CommandName.SIGN_OUT, new SignOutCommandImpl());
     }
 
+    /**Get enum representation of action
+     * than get from map command
+     * @param action
+     * @return
+     */
     public  BaseCommand defineCommand(String action) {
         CommandName commandName = null;
         BaseCommand command = null;

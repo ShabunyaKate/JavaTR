@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**Servlet is used in all program
+ */
 
 public class ProjectServlet extends HttpServlet {
     public static final String DB_DRIVER_CLASS = "com.mysql.jdbc.Driver";
@@ -27,6 +29,12 @@ public class ProjectServlet extends HttpServlet {
     public static final int DB_POOL_START_SIZE = 10;
     public static final int DB_POOL_MAX_SIZE = 1000;
     public static final int DB_POOL_CHECK_CONNECTION_TIMEOUT =0;
+
+    /**
+     * @method init
+     * download Connection pool and lock
+     */
+
     public void init() {
         try {
             ConnectionPool.INSTANCE.init(DB_DRIVER_CLASS, DB_URL, DB_USER, DB_PASSWORD, DB_POOL_START_SIZE, DB_POOL_MAX_SIZE, DB_POOL_CHECK_CONNECTION_TIMEOUT);
@@ -35,6 +43,14 @@ public class ProjectServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    /**Used for links
+     * @param request has param link that forward in other page, if param link is unvalid or null, servlet will forward into page 404
+     * actually download smt for start page, just like all users, days, that used in some tables or etc. in page
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Link link=new Link();
@@ -43,6 +59,12 @@ public class ProjectServlet extends HttpServlet {
         requestDispatcher.forward(request, response);
     }
 
+    /**Used for button
+     * @param request has param command, that forward in CommandChooser class and choose function that program needs
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

@@ -18,6 +18,13 @@ import java.util.List;
 import java.util.Map;
 
 public class TableFestivalCommandImpl implements BaseCommand {
+    /**
+     * Used when table_fest jsp download
+     * make map, set in session
+     * need in jstl tags
+     * @param request
+     * @return page
+     */
     @Override
     public String execute(HttpServletRequest request) {
         try {
