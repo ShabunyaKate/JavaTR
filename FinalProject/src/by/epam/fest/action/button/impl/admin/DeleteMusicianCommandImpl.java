@@ -15,9 +15,9 @@ public class DeleteMusicianCommandImpl implements BaseCommand {
         ServiceFactory serviceFactory=ServiceFactory.getInstance();
         String str=request.getParameter("musician_id");
         try {
-           AdminService adminService= serviceFactory.getAdminService();
-           adminService.deleteMusician(str);
-            TableMusicianCommandImpl tableMusicianCommand=new TableMusicianCommandImpl();
+             AdminService adminService= serviceFactory.getAdminService();
+             adminService.deleteMusician(str);
+             TableMusicianCommandImpl tableMusicianCommand=new TableMusicianCommandImpl();
             return tableMusicianCommand.execute(request);
         }catch (ServiceException e){
             return PAGE_ERROR;

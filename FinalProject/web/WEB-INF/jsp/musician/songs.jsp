@@ -22,7 +22,7 @@
     <a class="navbar-brand" href="ProjectServlet?link=musician_index"><h4 class="text-warning">Leto</h4></a>
     <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="ProjectServlet?link=songs">Управление песнями ии фотографиями</a>
+            <a class="nav-link" href="ProjectServlet?link=songs">Управление песнями и фотографиями</a>
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -52,7 +52,7 @@
     <div class="row">
         <div class="col"></div>
         <div class="col">
-    <input type="text" pattern="^[а-яА-ЯёЁa-zA-Z0-9 ]+$" name="add_new_song" class="form-control" minlength="1" maxlength="25" required>
+       <input type="text" pattern="^[а-яА-ЯёЁa-zA-Z0-9 .]+$" name="add_new_song" class="form-control" minlength="1" maxlength="25" required autofocus>
             <c:if test="${exception !=null}"><h7 class="text-danger">${exception}</h7></c:if>
         </div>
         <div class="col"></div>
@@ -85,10 +85,10 @@
         <div class="col"></div>
         <div class="col">
             <form  action="DownloadServlet" method="post"  enctype="multipart/form-data">
-                <input type="file" pattern="(.*)\.(png|jpeg|jpg)$" name="multiPartServlet"/>
+                <input type="file" pattern="(.*)\.(png|jpeg|jpg)$" required class="form-control" name="multiPartServlet"/>
                 <input  type="submit" class="btn btn-info btn-md text-center" value="Загрузить"/>
             </form>
-            <c:if test="${exception !=null}">
+            <c:if test="${exceptionD !=null}">
                 <h7 class="text-danger">${exception}</h7>
             </c:if>
         </div>

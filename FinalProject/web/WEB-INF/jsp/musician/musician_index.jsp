@@ -23,7 +23,7 @@
     <a class="navbar-brand" href="ProjectServlet?link=musician_index"><h4 class="text-warning">Leto</h4></a>
     <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="ProjectServlet?link=songs">Управление песнями ии фотографиями</a>
+            <a class="nav-link" href="ProjectServlet?link=songs">Управление песнями и фотографиями</a>
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">

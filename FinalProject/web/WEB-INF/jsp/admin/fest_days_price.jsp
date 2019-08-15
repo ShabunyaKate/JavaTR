@@ -50,7 +50,7 @@
         <div class="row">
             <div class="col"></div>
             <div class="col">
-        <input type="date" name="day" placeholder="date" class="form-control" required autofocus>
+        <input type="date" name="day" placeholder="date" min="1920-01-01" max="2020-01-01" class="form-control" required autofocus>
             </div>
             <div class="col"></div>
         </div>
@@ -65,9 +65,9 @@
                 </thead>
                 <tbody>
                 <tr class="text-center">
-                    <td><input type="number" name="VIP" step=".01" required autofocus></td>
-                    <td><input type="number" name="FAN_ZONE" step=".01" required autofocus></td>
-                    <td><input type="number" name="DANCE_FLOOR" step=".01" required autofocus></td>
+                    <td><input type="number" name="VIP" step=".01" minlength="1" maxlength="5" min="1" max="99999" required autofocus></td>
+                    <td><input type="number" name="FAN_ZONE" step=".01" minlength="1" maxlength="5" min="1" max="99999" required autofocus></td>
+                    <td><input type="number" name="DANCE_FLOOR" step=".01" minlength="1" maxlength="5" min="1" max="99999" required autofocus></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -109,9 +109,9 @@
                 </thead>
                 <tbody>
                 <tr class="text-center">
-                    <td><input type="number" name="VIP" step=".01" required autofocus></td>
-                    <td><input type="number" name="FAN_ZONE" step=".01" required autofocus></td>
-                    <td><input type="number" name="DANCE_FLOOR" step=".01" required autofocus></td>
+                    <td><input type="number" name="VIP" step=".01" minlength="1" maxlength="5" min="1" max="99999" required autofocus></td>
+                    <td><input type="number" name="FAN_ZONE" step=".01" minlength="1" maxlength="5" min="1" max="99999" required autofocus></td>
+                    <td><input type="number" name="DANCE_FLOOR" step=".01" minlength="1" maxlength="5" min="1" max="99999" required autofocus></td>
                 </tr>
                 <tr>
                     <td></td>

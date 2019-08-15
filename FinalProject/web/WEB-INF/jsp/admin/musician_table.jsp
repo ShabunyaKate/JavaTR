@@ -75,9 +75,9 @@
         </c:forEach>
         <form class="form" action="ProjectServlet" method="post">
             <div class="form-group">
-                <td>Новый музыкант</td>
-                <td><input type="text" name="login"  placeholder="login" class="form-control" required autofocus></td>
-                <td><input type="password" name="password"  placeholder="password" class="form-control" required autofocus></td>
+                <td>Новый музыкант  <c:if test="${exception !=null}"><h7 class="text-danger">${exception}</h7></c:if></td>
+                <td><input type="text" name="login"  pattern="^[а-яА-ЯёЁa-zA-Z0-9 ]+$" minlength="3" maxlength="15" placeholder="login" class="form-control" required autofocus></td>
+                <td><input type="password" name="password" pattern="^[a-zA-Z0-9]{8,25}$" name="password" minlength="8" maxlength="25" placeholder="password" class="form-control" required autofocus></td>
                 <td><select class="custom-select mr-sm-2" name="day_id">
                     <c:forEach items="${days}" var="day">
                         <option value="${day.id}">${day.date}</option>

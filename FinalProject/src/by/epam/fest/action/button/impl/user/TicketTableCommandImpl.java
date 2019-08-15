@@ -21,7 +21,8 @@ public class TicketTableCommandImpl implements BaseCommand {
         HttpSession session=request.getSession(false);
         User user=(User)session.getAttribute("user");
         try {
-            List<TicketUsage> ticketUsages=userService.getAllTicketsByUserId(user.getId());
+            Integer id=user.getId();
+            List<TicketUsage> ticketUsages=userService.getAllTicketsByUserId(id);
             session.setAttribute("usages",ticketUsages);
             return PAGE_USER_TICKET;
         }catch (ServiceException e){

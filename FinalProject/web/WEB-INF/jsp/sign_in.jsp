@@ -60,7 +60,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-info"><fmt:message key="password"/></label><br>
-                            <input type="text" name="password"  required id="password" class="form-control">
+                            <input type="password" name="password"  required id="password" class="form-control">
                         </div>
                         <c:if test="${exception !=null}"><h7 class="text-danger">${exception}</h7></c:if>
                         <div class="form-group">

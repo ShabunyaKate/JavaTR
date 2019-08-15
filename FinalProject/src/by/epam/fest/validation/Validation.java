@@ -16,4 +16,10 @@ public interface Validation {
     boolean isValidDate(String str);
 
     boolean isPositiveNumber(Integer id);
+
+    boolean isSong(String str);
+
+    boolean isFormatFle(String str);
+
+
 }

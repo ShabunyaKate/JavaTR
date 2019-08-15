@@ -20,6 +20,8 @@ public class ValidationImpl implements Validation {
     private static final String LOGIN_PATTERN = "^[а-яА-ЯёЁa-zA-Z0-9]+$";
     private static final String PASSWORD_PATTERN = "^[a-zA-Z0-9]{8,25}$";
     private static final String PHONE_PATTERN = "^\\+[1-9]{1}[0-9]{3,14}$";
+    private static final String SONG_PATTERN ="^[а-яА-ЯёЁa-zA-Z0-9 ]+$";
+    private static final String FILE_PATTERN ="(.*)\\.(png|jpeg|jpg)$";
 
     @Override
     public boolean isTextForm(String str) {
@@ -44,6 +46,19 @@ public class ValidationImpl implements Validation {
     @Override
     public boolean isPhone(String str) {
         return Pattern.matches(PHONE_PATTERN, str);
+    }
+
+    @Override
+    public boolean isSong(String str) {
+       if (!str.trim().isEmpty()){
+           return false;
+       }
+        return Pattern.matches(SONG_PATTERN, str);
+    }
+
+    @Override
+    public boolean isFormatFle(String str) {
+        return Pattern.matches(FILE_PATTERN, str);
     }
 
     @Override

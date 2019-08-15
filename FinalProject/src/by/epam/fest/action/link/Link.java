@@ -30,6 +30,9 @@ public class Link {
         User user=(User) session.getAttribute("user");
         User admin=(User) session.getAttribute("admin");
         String requestLink=request.getParameter("link");
+        if (requestLink==null){
+            return PAGE_ERROR;
+        }
         BaseCommand command;
         String link = PAGE_ERROR;
         switch (requestLink) {

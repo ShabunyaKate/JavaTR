@@ -62,7 +62,8 @@ public class ClientServiceImpl implements ClientService {
                 Integer info_id = userInfoDao.create(userInfo);
                 userInfo.setId(info_id);
                 user.setUserInfo(userInfo);
-                userDao.create(user);
+                Integer id= userDao.create(user);
+                user.setId(id);
                 return user;
             } catch (DaoException e) {
                 throw new ServiceException(e);

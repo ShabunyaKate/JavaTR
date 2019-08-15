@@ -6,9 +6,7 @@ import by.epam.fest.action.button.impl.admin.*;
 import by.epam.fest.action.button.impl.musician.AddSongCommandImpl;
 import by.epam.fest.action.button.impl.musician.DeleteSongCommandImpl;
 import by.epam.fest.action.button.impl.TableFestivalCommandImpl;
-import by.epam.fest.action.button.impl.musician.DownloadImgCommadnImpl;
 import by.epam.fest.action.button.impl.user.*;
-import by.epam.fest.dao.impl.MusicianDaoImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -45,71 +43,9 @@ public class CommandChooser {
         repository.put(CommandName.USER_TABLE, new TableUserCommandImpl());
         repository.put(CommandName.UPDATE_PRICES, new UpdatePricesCommandImpl());
         repository.put(CommandName.SIGN_OUT, new SignOutCommandImpl());
-        repository.put(CommandName.UPLOAD_IMG,new DownloadImgCommadnImpl());
-
     }
 
-//    public  BaseCommand defineCommand(String action) {
-//        BaseCommand command = new DefaultCommandImpl();
-//        switch (action) {
-//            case "change_Lang":
-//                command = new LanguageCommandImpl();
-//                break;
-//            //индекс
-//            case "sign_in":
-//                command = new SignInCommandImpl();
-//                break;
-//            case "registration":
-//                command = new RegistrationCommandImpl();
-//                break;
-//            case "festival_table":
-//                command = new TableFestivalCommandImpl();
-//                break;
-//            case "sign_out":
-//                command = new SignOutCommandImpl();
-//                break;
-//            // музыкант
-//            case "add_song":
-//                command = new AddSongCommandImpl();
-//                break;
-//            case "delete_song":
-//                command = new DeleteSongCommandImpl();
-//                break;
-//            // admin
-//            case "user_table":
-//                command = new TableUserCommandImpl();
-//                break;
-//            case "delete_user":
-//                command = new DeleteUserCommandImpl();
-//                break;
-//            case "musician_table":
-//                command = new TableMusicianCommandImpl();
-//                break;
-//            case "delete_musician":
-//                command = new DeleteMusicianCommandImpl();
-//                break;
-//            case "add_musician":
-//                command = new AddMusicianCommandImpl();
-//                break;
-//            case "add_day":
-//                command = new AddDayCommandImpl();
-//                break;
-//            case "update_price":
-//                command = new UpdatePricesCommandImpl();
-//                break;
-//            //user
-//            case "delete_usage":
-//                command = new DeleteUsageCommandImpl();
-//                break;
-//            case "book_ticket":
-//                command = new BookTicketCommandImpl();
-//                break;
-//        }
-//        return command;
-//    }
-
     public  BaseCommand defineCommand(String action) {
-        logger.warn("EHFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
         CommandName commandName = null;
         BaseCommand command = null;
         try {
@@ -118,6 +54,7 @@ public class CommandChooser {
         } catch (IllegalArgumentException | NullPointerException e) {
            command = repository.get(CommandName.ERROR);
              }
+        logger.info("new Command",command);
         return command;
     }
 }

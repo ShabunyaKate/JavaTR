@@ -16,7 +16,7 @@ public class UpdatePricesCommandImpl implements BaseCommand {
         String priceVip = request.getParameter("VIP");
         String  priceFan = request.getParameter("FAN_ZONE");
         String priceDance =request.getParameter("DANCE_FLOOR");
-       ServiceFactory serviceFactory=ServiceFactory.getInstance();
+        ServiceFactory serviceFactory=ServiceFactory.getInstance();
         AdminService service=serviceFactory.getAdminService();
         try{
             service.updatePrices(day_id, new BigDecimal(priceVip),new BigDecimal(priceFan), new BigDecimal(priceDance));

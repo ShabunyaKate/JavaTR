@@ -31,7 +31,7 @@ public class MusicianServiceImpl implements MusicianService {
     public int addSong(String name, Integer id) throws ServiceException {
         try {
             Validation validation= ValidationImpl.getInstance();
-            if (!validation.isLogin(name)){
+            if (!validation.isSong(name)){
                 throw new ServiceException();
             }
             Song song=new Song();

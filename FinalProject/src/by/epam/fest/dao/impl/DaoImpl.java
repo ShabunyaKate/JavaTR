@@ -1,5 +1,8 @@
 package by.epam.fest.dao.impl;
 
+import by.epam.fest.dao.pool.ConnectionPool;
+import by.epam.fest.exception.DaoException;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -8,8 +11,11 @@ import java.util.ResourceBundle;
 public abstract class DaoImpl {
 
 	protected Connection connection;
-	public void setConnection(Connection connection) {
-		this.connection = connection;
+	public void setConnection() {
+		try {
+			this.connection = ConnectionPool.INSTANCE.getConnection();
+		}catch (DaoException e){
+		}
 	}
 
 	protected Connection getDBConnection() throws SQLException {

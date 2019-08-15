@@ -13,7 +13,9 @@ import by.epam.fest.domain.Role;
 import by.epam.fest.domain.User;
 import by.epam.fest.exception.ServiceException;
 import by.epam.fest.service.AdminService;
+import by.epam.fest.service.ClientService;
 import by.epam.fest.service.ServiceFactory;
+import by.epam.fest.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -27,7 +29,13 @@ public class AddMusicianCommandImpl implements BaseCommand {
         ServiceFactory serviceFactory=ServiceFactory.getInstance();
         try {
             AdminService service=serviceFactory.getAdminService();
-            service.addMusician(login,password,day);
+            ClientService clientService=serviceFactory.getClientService();
+                if(!clientService.cheakUniqueLogin(login)){
+                    String s="Такой музыкант уже есть";
+                    request.setAttribute("exception",s);
+                    return PAGE_ADMIN_MUSICIAN;
+                }
+                service.addMusician(login,password,day);
             TableMusicianCommandImpl tableMusicianCommand=new TableMusicianCommandImpl();
             return tableMusicianCommand.execute(request);
         }catch (ServiceException e){
